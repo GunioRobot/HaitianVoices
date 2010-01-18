@@ -1,4 +1,7 @@
 ActionController::Routing::Routes.draw do |map|
+
+  map.root :controller => "stories", :action => "index"
+
   map.resources :stories
 
   map.resource :user_session
