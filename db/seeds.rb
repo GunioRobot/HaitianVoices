@@ -5,3 +5,12 @@
 #   
 #   cities = City.create([{ :name => 'Chicago' }, { :name => 'Copenhagen' }])
 #   Major.create(:name => 'Daley', :city => cities.first)
+unless User.find_by_login('cselmer')
+  User.create(  :first_name => 'Chris', 
+                :last_name => 'Selmer',
+                :login => 'cselmer', 
+                :email => 'chris@intridea.com',
+                :password => 'selmer123', 
+                :password_confirmation => 'selmer123'
+              )
+end
