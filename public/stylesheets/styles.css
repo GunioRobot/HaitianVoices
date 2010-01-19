@@ -1,5 +1,5 @@
 body {
-  background: #F1EDDB url(images/bg.png) repeat 0 0;
+  background: #F1EDDB url(/images/bg.png) repeat 0 0;
   font: 62.5%/100% "Lucida Grande", Helvetica, Verdana, Arial, sans-serif;
   color: #959595;
   border-top: 5px solid #E5E0CE;
@@ -54,7 +54,7 @@ a img { border: 0 }
 }
 
 #header { 
-  background: #877D6E url(images/bg-header.png) repeat 0 0;
+  background: #877D6E url(/images/bg-header.png) repeat 0 0;
   color: #FFF;
   text-shadow: #6D6558 1px 1px 0;
   padding: 10px 15px;
