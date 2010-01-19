@@ -2,6 +2,6 @@ log/*.log
 tmp/**/*
 doc/api
 doc/app
-db/database.yml
+config/database.yml
 bin
 vendor/bundler_gems
