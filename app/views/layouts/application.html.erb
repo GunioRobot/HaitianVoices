@@ -43,7 +43,12 @@
   
   <div id="footer">
     <p>&copy; 2009 Haitian Stories &mdash; all rights reserved.</p>
-    <p><a href="/">Home</a> &bull; <a href="/about">About</a> &bull; <a href="/share">Share a Story</a></p>
+    <p>
+      <a href="/">Home</a> &bull; 
+      <a href="/about">About</a> &bull; 
+      <a href="/share">Share a Story</a>
+      <% if current_user %>&bull; <%= link_to 'Log Out', admin_user_session_path, :method => :delete %><% end -%>
+    </p>
   </div>
 </div>
 </body>

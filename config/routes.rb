@@ -7,12 +7,12 @@ ActionController::Routing::Routes.draw do |map|
   map.namespace :admin do |admin|
 
     admin.root :controller => 'stories'
-
+    
     admin.resources :stories
     admin.resource :user_session
     admin.resource :account, :controller => "users"
     admin.resources :users
-  
+    
   end
 
 

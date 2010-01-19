@@ -10,7 +10,7 @@ class Admin::UserSessionsController < AdminController
     @user_session = UserSession.new(params[:user_session])
     if @user_session.save
       flash[:notice] = "Login successful!"
-      redirect_back_or_default admin_users_url
+      redirect_to admin_stories_url
     else
       render :action => :new
     end
@@ -19,6 +19,6 @@ class Admin::UserSessionsController < AdminController
   def destroy
     current_user_session.destroy
     flash[:notice] = "Logout successful!"
-    redirect_back_or_default new_admin_user_session_url
+    redirect_to new_admin_user_session_url
   end
 end

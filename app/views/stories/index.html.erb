@@ -1,16 +1,12 @@
 <h1>Haitian Stories</h1>
 
-
-
-
-  <div id="stories">
-    
-    
-    <% @stories.each do |story| %>
-    <h2><%=h story.title %></h2>
-    <div class="story">
-      <p><%=h story.body %></p>
-    </div>
-    <% end %>
-
+<div id="stories">
+  
+  <% @stories.each do |story| %>
+  <h2><%=h story.title %></h2>
+  <div class="story">
+    <p><%=h story.body %></p>
   </div>
+  <% end %>
+
+</div>
