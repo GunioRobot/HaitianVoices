@@ -21,16 +21,11 @@
 <body>
 <div id="wrapper">
   <div id="header">
-    <p>Do you have a story to share? <a href="share.html">Share it now</a></p>
+    <p>Do you have a story to share? <a href="/share">Share it now</a></p>
     <ul>
-       <li>Haitian Stories</li>
-     </ul
+       <li><a href="/" class="on">Haitian Stories</a></li>
+     </ul>
 
-   <!-- <ul>
-      <li><a href="/" class="on">Home</a></li>
-      <li><a href="login.html">Login</a></li>
-      <li><a href="signup.html">Login</a></li>
-    </ul>-->  
     <div class="clearfix"></div>
   </div>
   
@@ -42,12 +37,16 @@
   </div>
   
   <div id="footer">
+    <div class="credit"><%= link_to image_tag('intridea_50x50.png', :title => 'Built by Intridea'), 'http://intridea.com' %></div>
     <p>&copy; 2010 Haitian Stories &mdash; all rights reserved.</p>
     <p>
       <a href="/">Home</a> &bull; 
       <a href="/about">About</a> &bull; 
       <a href="/share">Share a Story</a>
-      <% if current_user %>&bull; <%= link_to 'Log Out', admin_user_session_path, :method => :delete %><% end -%>
+      <% if current_user %>
+        &bull; <%= link_to 'Admin', admin_stories_path %>
+        &bull; <%= link_to 'Log Out', admin_user_session_path, :method => :delete %>
+      <% end -%>
     </p>
   </div>
 </div>

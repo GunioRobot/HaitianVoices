@@ -1,6 +1,6 @@
-<h1>Editing story</h1>
+<h1>Add Your Story</h1>
 
-<% form_for [:admin, @story] do |f| %>
+<% form_for( @story ) do |f| %>
   <%= f.error_messages %>
 
   <p>
@@ -15,12 +15,18 @@
   <p>
     <%= f.label :about, 'A little about you: <span>contact information, a brief bio, whatever you care to share' %><br />
     <%= f.text_area :about, :class => 'thin' %>
+  </p>  
+  
+  <p>
+  <label>Spam prevention: <span>so we can tell you're human</span></label><br/>
+  <%= recaptcha_tags %><br/>
   </p>
   
   <p>
-    <%= f.submit 'Update' %>
+    <%= f.submit 'Add Your Story' %>
   </p>
 <% end %>
 
-<%= link_to 'Show', @story %> |
-<%= link_to 'Back', admin_stories_path %>
+<p>
+<%= link_to 'Back Home', stories_path %>
+</p>

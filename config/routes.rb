@@ -2,13 +2,17 @@ ActionController::Routing::Routes.draw do |map|
 
   map.root :controller => "stories", :action => "index"
 
+  map.share '/share', :controller => 'stories', :action => 'new'
+
   map.resources :stories
+
+
 
   map.namespace :admin do |admin|
 
     admin.root :controller => 'stories'
     
-    admin.resources :stories
+    admin.resources :stories, :member => { :approve => :put, :disapprove => :put }
     admin.resource :user_session
     admin.resource :account, :controller => "users"
     admin.resources :users

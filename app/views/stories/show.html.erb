@@ -1,11 +1,9 @@
-<p>
-  <b>Title:</b>
-  <%=h @story.title %>
-</p>
+<h1>A Story</h1>
 
-<p>
-  <b>Body:</b>
-  <%=h @story.body %>
-</p>
+<h2><%=h @story.title %></h2>
+<div class="story">
+  <p><%=h @story.body.gsub!(/\n/, '<br />')
+   %></p>
+</div>
 
 <%= link_to 'Back', stories_path %>

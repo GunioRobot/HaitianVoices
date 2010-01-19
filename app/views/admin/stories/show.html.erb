@@ -1,12 +1,20 @@
-<p>
-  <b>Title:</b>
-  <%=h @story.title %>
-</p>
+<h1>View Story</h1>
 
-<p>
-  <b>Body:</b>
-  <%=h @story.body %>
-</p>
+
+<h2><%=h @story.title %></h2>
+<div class="story">
+  <p><%=h @story.body %></p>
+  <p>
+    <%= link_to 'Show', admin_story_path(@story) %> |
+    <%= link_to 'Edit', edit_admin_story_path(@story) %> |
+    <% if @story.approved? %>
+      <%= link_to 'Deny', disapprove_admin_story_path(@story), :method => :put %> |
+    <% else -%>
+      <%= link_to 'Approve', approve_admin_story_path(@story), :method => :put %> |
+    <% end -%>
+    <%= link_to 'Delete', admin_story_path(@story), :confirm => 'Are you sure?  There is no undo', :method => :delete %>
+  </p>
+</div>
 
 
 <%= link_to 'Edit', edit_admin_story_path(@story) %> |

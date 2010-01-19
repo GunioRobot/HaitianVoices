@@ -136,6 +136,7 @@ a img { border: 0 }
 
 #footer { 
   padding: 10px 15px;
+  border-top: 1px solid #D4CFBD;
 /*  border-top: 3px solid #EEE;
 */}
 
@@ -143,6 +144,11 @@ a img { border: 0 }
     padding: 0;
     margin: 0;
   }
+
+	#footer div.credit {
+		float:right;
+	}
+
   
 /* Forms
 */
@@ -160,8 +166,12 @@ form legend {
 form label {
   display: inline-block;
   vertical-align: top;
-  width: 180px;
   font-weight: bold;
+}
+
+form label span {
+	font-size: .9em;
+  font-weight: normal;
 }
 
 form p.info {
@@ -175,10 +185,23 @@ form input.text-input {
   padding: 3px;
 }
 
+form input.long {
+  width: 725px;
+}
+
+
 form textarea {
   width: 725px;
   height: 200px;
   padding: 3px;
+}
+
+form textarea.thin {
+  height: 75px;
+}
+
+form textarea.tall {
+  height: 300px;
 }
 
 form fieldset ol {

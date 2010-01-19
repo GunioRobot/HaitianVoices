@@ -9,13 +9,17 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100118222942) do
+ActiveRecord::Schema.define(:version => 20100119081900) do
 
   create_table "stories", :force => true do |t|
     t.string   "title"
     t.text     "body"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "approved",    :default => false
+    t.integer  "approved_by"
+    t.datetime "approved_on"
+    t.text     "about"
   end
 
   create_table "users", :force => true do |t|
@@ -28,6 +32,7 @@ ActiveRecord::Schema.define(:version => 20100118222942) do
     t.string   "persistence_token",                  :null => false
     t.string   "single_access_token",                :null => false
     t.string   "perishable_token",                   :null => false
+    t.string   "twitter",                            :null => false
     t.integer  "login_count",         :default => 0, :null => false
     t.integer  "failed_login_count",  :default => 0, :null => false
     t.datetime "last_request_at"
