@@ -11,6 +11,7 @@ unless User.find_by_login('cselmer')
                 :login => 'cselmer', 
                 :email => 'chris@intridea.com',
                 :password => 'selmer123', 
-                :password_confirmation => 'selmer123'
+                :password_confirmation => 'selmer123', 
+                :twitter => 'cselmer'
               )
 end
