@@ -5,3 +5,4 @@ doc/app
 db/database.yml
 vendor/gems
 bin
+vendor/bundler_gems
