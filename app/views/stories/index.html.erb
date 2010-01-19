@@ -1,16 +1,16 @@
-<h1>Listing stories</h1>
+<h1>Haitian Stories</h1>
 
-<table>
-  <tr>
-    <th>Title</th>
-    <th>Body</th>
-  </tr>
 
-<% @stories.each do |story| %>
-  <tr>
-    <td><%=h story.title %></td>
-    <td><%=h story.body %></td>
-    <td><%= link_to 'Show', story %></td>
-  </tr>
-<% end %>
-</table>
+
+
+  <div id="stories">
+    
+    
+    <% @stories.each do |story| %>
+    <h2><%=h story.title %></h2>
+    <div class="story">
+      <p><%=h story.body %></p>
+    </div>
+    <% end %>
+
+  </div>
