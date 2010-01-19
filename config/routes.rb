@@ -2,6 +2,7 @@ ActionController::Routing::Routes.draw do |map|
 
   map.root :controller => "stories", :action => "index"
 
+  map.about '/about', :controller => 'pages', :action => 'show_page', :page_name => 'about'
   map.share '/share', :controller => 'stories', :action => 'new'
 
   map.resources :stories
