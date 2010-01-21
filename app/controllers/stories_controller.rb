@@ -20,7 +20,7 @@ class StoriesController < ApplicationController
       if @story.save
         redirect_to story_path( @story )
       else
-        flashe[:notice] = "Thank you for sharing your story with Haitian Stories.  Our team of moderators review every story that comes before making them live on the website.  This process may take up to 2-3 days."
+        flashe[:notice] = "Thank you for sharing your story with Haitian Voices.  Our team of moderators review every story that comes before making them live on the website.  This process may take up to 2-3 days."
         render :action => "new"
       end
     else
