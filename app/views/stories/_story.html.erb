@@ -1,5 +1,6 @@
 <div class='story'>
-  <% if story.title %><h3><%= link_to story.title, story_path(story) %></h3>
-    <p><%= display(story.body )%>
-  <% end %>
+    <% if story.title %><h3><%= link_to story.title, story_path(story) %></h3><% end %>
+    <div class='body'>
+      <p><%= display(story.body )%></p>
+    </div>
 </div>

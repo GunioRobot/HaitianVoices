@@ -8,7 +8,9 @@ html, body
 body
   :background #423b1f url(/images/pattern_30.png)
   :font-family "Museo Slab"
-  
+
+a
+  :color #248
 #wrapper
   :min-height 100%
   :width 800px
@@ -62,6 +64,21 @@ body
       :color #752
       &:hover
         :background-color #fec
+
+div.story
+  h3
+    :font-size 20px
+    :margin 0 10px 10px
+    a
+      :text-decoration none
+      :color #722      
+  div.body
+    :background white url(/images/pattern_10.png)
+    :border 3px solid #dca
+    :padding 15px
+    :margin-bottom 25px
+    :margin-top 7px
+    +round(15px)
 
 #footer
   +clearfix

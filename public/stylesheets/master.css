@@ -53,6 +53,9 @@ body {
   background: #423b1f url(/images/pattern_30.png);
   font-family: "Museo Slab"; }
 
+a {
+  color: #248; }
+
 #wrapper {
   min-height: 100%;
   width: 800px;
@@ -135,6 +138,22 @@ body {
       color: #752; }
       #header div#menu a.share_button:hover {
         background-color: #fec; }
+
+div.story h3 {
+  font-size: 20px;
+  margin: 0 10px 10px; }
+  div.story h3 a {
+    text-decoration: none;
+    color: #722; }
+div.story div.body {
+  background: white url(/images/pattern_10.png);
+  border: 3px solid #dca;
+  padding: 15px;
+  margin-bottom: 25px;
+  margin-top: 7px;
+  -moz-border-radius: 15px;
+  -webkit-border-radius: 15px;
+  border-radius: 15px; }
 
 #footer {
   display: inline-block;
