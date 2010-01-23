@@ -1,7 +1,19 @@
-development:
+---
+development: &defaults
   adapter: mysql
-  encoding: utf8
-  database: hatianvoices_development
+  database: haitianvoices_development
   username: root
-  password:
-  socket: /tmp/mysql.sock
+  password: 
+  host: localhost
+  log_stream: STDOUT
+  log_level: 0
+
+test:
+  <<: *defaults
+  database: haitianvoices_test
+  log_stream: nil
+
+production:
+  <<: *defaults
+  database: haitianvoices_production
+  log_stream: nil
