@@ -7,9 +7,13 @@ class Story < ActiveRecord::Base
 
   attr_protected :approved, :approved_by, :approved_on
 
+  attr_accessor :picture_files
+
   #named_scope :by_date, :order => "created_at DESC"
   named_scope :by_date, lambda { |sort| { :order => "created_at #{sort}"} }
   named_scope :approved, :conditions => { :approved => true }
+
+  before_save :add_pictures
 
   def self.random
     if (c = count) > 0
@@ -26,6 +30,13 @@ class Story < ActiveRecord::Base
     words[0..(length-1)].join(' ') + (words.length > length ? end_string : '')
   end
   
+  def add_pictures
+    unless picture_files.blank?
+      picture_files.each do |f|
+        pictures << pictures.build(:photo => f)
+      end
+    end
+  end
 
 
 end

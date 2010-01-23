@@ -30,9 +30,9 @@ class StoriesController < ApplicationController
 
     if verify_recaptcha
       if @story.save
+        flash[:notice] = "Thank you for sharing your story with Haitian Voices.  Our team of moderators review every story that comes before making them live on the website.  This process may take up to 2-3 days."
         redirect_to story_path( @story )
       else
-        flashe[:notice] = "Thank you for sharing your story with Haitian Voices.  Our team of moderators review every story that comes before making them live on the website.  This process may take up to 2-3 days."
         render :action => "new"
       end
     else
