@@ -3,11 +3,11 @@
 <%= render @story %>
 <%= youtube_embed(@story) %>
 
-<% unless @story.translations.empty? %>
+<% unless @story.translations.approved.empty? %>
   <div class="story">
     <h2>This story is also available in these languages</h2>
     <ul>
-      <% @story.translations.each { |s| %>
+      <% @story.translations.approved.each { |s| %>
         <li><%=link_to s.language.title, translations_path(:story => @story, :language => s.language_id) %>
       <% } %>
     </ul>
