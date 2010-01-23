@@ -8,7 +8,7 @@ http://wiki.crisiscommons.org/wiki/Haitian_Voices
 
 == IRC
 
-irc.rhok.net #haitianvoices
+irc.freenode.net #haitianvoices
 
 == Coordinator
 
