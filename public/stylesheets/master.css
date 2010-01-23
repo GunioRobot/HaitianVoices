@@ -139,6 +139,11 @@ a {
       #header div#menu a.share_button:hover {
         background-color: #fec; }
 
+h2 {
+  font-size: 28px;
+  color: #458;
+  letter-spacing: -0.03em; }
+
 div.story h3 {
   font-size: 20px;
   margin: 0 10px 10px; }
@@ -187,13 +192,14 @@ div.story div.body {
       margin-top: 7px; }
 
 .pagination {
-  text-align: right;
-  padding-right: 5px;
-  padding-top: 10px; }
+  text-align: center;
+  padding: 10px 0;
+  margin-bottom: 10px; }
   .pagination a, .pagination .disabled {
-    padding: 2px 2px; }
+    padding: 2px 2px;
+    margin: 0 3px; }
   .pagination .disabled {
-    color: #ccc; }
+    color: #dca; }
   .pagination .current {
     -moz-border-radius: 5px;
     -webkit-border-radius: 5px;

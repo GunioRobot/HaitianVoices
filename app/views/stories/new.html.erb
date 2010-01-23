@@ -1,9 +1,9 @@
 <% content_for :html_head do %>
 <%= javascript_include_tag "stories" %>
 <% end %>
-
+ 
 <h1>Add Your Story</h1>
-
+ 
 <% form_for( @story, :html => { :multipart => true }) do |f| %>
   <%= f.error_messages %>
   
@@ -28,8 +28,8 @@
   <p>
     <%= f.label :about, 'A little about you: <span>contact information, a brief bio, whatever you care to share<br>(this will not show up on the site - this is here in case our volunteers need to get in touch)</br>' %><br />
     <%= f.text_area :about, :class => 'thin' %>
-  </p>  
-
+  </p>
+ 
   <p id="photos">
     <label>Photos</label>
     <br />
@@ -40,7 +40,7 @@
     <%= f.label :language, 'This story is recorded in:' %>
     <%= select "story", "language_id", langs %>
   </p>
-
+ 
   <p>
   <label>Spam prevention: <span>so we can tell you're human</span></label><br/>
   <%= recaptcha_tags %><br/>
@@ -50,7 +50,7 @@
     <%= f.submit 'Add Your Story' %>
   </p>
 <% end %>
-
+ 
 <p>
 <%= link_to 'Back Home', stories_path %>
 </p>
