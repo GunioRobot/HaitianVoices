@@ -1,7 +1,7 @@
 <h1>View Story</h1>
 
 
-<h2><%=h @story.title %></h2>
+<h2><%=h @story.title unless @story.title.blank? %></h2>
 <div class="story">
   <p><%=h @story.language.title %></p>
   <p><%=h @story.body %></p>
