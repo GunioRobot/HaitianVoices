@@ -1,9 +1,12 @@
 class Story < ActiveRecord::Base
 
-  belongs_to :user, :class_name => "User", :foreign_key => "approved_by"
-  has_many :pictures
-
   acts_as_taggable_on :tags
+
+  belongs_to :user, :class_name => "User", :foreign_key => "approved_by"
+  belongs_to :language
+  belongs_to :user, :class_name => "User", :foreign_key => "approved_by"
+
+  has_many :pictures
 
   attr_protected :approved, :approved_by, :approved_on
 

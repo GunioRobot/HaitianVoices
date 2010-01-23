@@ -1,0 +1,25 @@
+<h1>All Languages</h1>
+<div id="stories">
+  <% @langs.each do |lang| %>
+  <div class="story">
+    <p>
+      <%=h lang.title %>
+      <%= link_to 'Edit', edit_admin_language_path(lang) %> |
+      <%= link_to 'Delete', admin_language_path(lang), :confirm => 'Are you sure?  There is no undo', :method => :delete %>
+    </p>
+  </div>
+  <% end %>
+  <div class="story">
+    <h2>Add a New Language</h2>
+    <% form_for [:admin, @newLang] do |f| %>
+      <%= f.error_messages %>
+      <p>
+        <%= f.label :title, 'Language Title: <span>localized language name</span>' %><br />
+        <%= f.text_field :title, :class => 'long' %>
+      </p>
+      <p>
+        <%= f.submit 'Create' %>
+      </p>
+    <% end %>
+  </div>
+</div>
