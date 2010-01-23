@@ -12,11 +12,11 @@ module StoriesHelper
     select_tag "filter", options_for_select(["All", "Text", "Audio", "Video"])
   end
 
-  def youtube_embed(url, width=425, height=350)
-    url.gsub!('watch?v=', 'v/')
+  def youtube_embed(story, width=425, height=350)
+    return unless story.url
     markup =  "<object width='#{width}' height='#{height}'>"
-    markup << "<param name='movie' value='#{url}' align='left'></param>"
-    markup << "<embed src='#{url}' type='application/x-shockwave-flash' width='#{width}' height='#{height}'></embed>"
+    markup << "<param name='movie' value='#{story.youtube_embed_url}' align='left'></param>"
+    markup << "<embed src='#{story.youtube_embed_url}' type='application/x-shockwave-flash' width='#{width}' height='#{height}'></embed>"
     markup << "</object>"
   end
   

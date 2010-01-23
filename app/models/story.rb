@@ -39,6 +39,10 @@ class Story < ActiveRecord::Base
     words = text.split()
     words[0..(length-1)].join(' ') + (words.length > length ? end_string : '')
   end
+
+  def youtube_embed_url
+    url.gsub('watch?v=', 'v/')
+  end
   
   def add_pictures
     unless picture_files.blank?
