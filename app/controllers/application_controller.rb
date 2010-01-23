@@ -10,7 +10,7 @@ class ApplicationController < ActionController::Base
 
   private
     def pagination_options
-      {:page => params[:page], :per_page => 20}
+      {:page => params[:page], :per_page => 10}
     end
   
     def current_user_session
