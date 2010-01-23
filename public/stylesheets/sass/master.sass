@@ -3,3 +3,18 @@
 
 body
   :background #ebddad url(/images/body_bg.jpg)
+
+.pagination
+  a, .disabled
+    :padding 2px 2px
+  :text-align right
+  :padding-right 5px
+  :padding-top 10px
+  .disabled
+    :color #ccc
+  .current
+    +round
+    :padding 2px 8px
+    :color #fff
+    :background #3d6d90
+
