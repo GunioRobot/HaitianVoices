@@ -6,6 +6,7 @@ class StoriesController < ApplicationController
     respond_to do |format|
       format.json { render :json => @stories }
       format.xml  { render :xml => @stories }
+      format.html
     end
   end
 
@@ -15,6 +16,7 @@ class StoriesController < ApplicationController
     respond_to do |format|
       format.json { render :json => @story }
       format.xml  { render :xml => @story }
+      format.html
     end    
   end
   
