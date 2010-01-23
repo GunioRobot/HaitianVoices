@@ -18,6 +18,11 @@
   </p>  
   
   <p>
+    <%= f.label :language, 'This story is recorded in:' %>
+    <%= select "story", "language_id", @langs %>
+  </p>
+
+  <p>
   <label>Spam prevention: <span>so we can tell you're human</span></label><br/>
   <%= recaptcha_tags %><br/>
   </p>

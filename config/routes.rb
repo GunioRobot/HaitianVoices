@@ -1,4 +1,6 @@
 ActionController::Routing::Routes.draw do |map|
+  map.resources :translations
+
 
   map.root :controller => "stories", :action => "index"
 
@@ -10,9 +12,9 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :stories
 
   map.namespace :admin do |admin|
-    admin.root :controller => 'stories'
-    
     admin.resources :stories, :member => { :approve => :put, :disapprove => :put }
+    admin.resources :translations, :member => { :approve => :put, :disapprove => :put }
+    admin.resources :languages
     admin.resources :users
     admin.resource :user_session
     admin.resource :account, :controller => "users"
