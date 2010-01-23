@@ -13,6 +13,11 @@ test:
   database: haitianvoices_test
   log_stream: nil
 
+cucumber:
+  <<: *defaults
+  database: haitianvoices_test
+  log_stream: nil
+
 production:
   <<: *defaults
   database: haitianvoices_production

@@ -1,3 +1,4 @@
+rerun.txt
 log/*.log
 tmp/**/*
 doc/api
