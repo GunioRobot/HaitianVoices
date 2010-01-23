@@ -3,6 +3,8 @@ ActionController::Routing::Routes.draw do |map|
   map.root :controller => "stories", :action => "index"
 
   map.about '/about', :controller => 'pages', :action => 'show_page', :page_name => 'about'
+  map.privacy '/privacy', :controller => 'pages', :action => 'show_page', :page_name => 'privacy'
+  map.terms '/terms', :controller => 'pages', :action => 'show_page', :page_name => 'terms'
   map.share '/share', :controller => 'stories', :action => 'new'
 
   map.resources :stories
