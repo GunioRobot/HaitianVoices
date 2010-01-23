@@ -21,25 +21,32 @@ jQuery.noConflict();
 <body>
 <div id="wrapper">
   <div id="header">
-    <p>Do you have a story to share? <a href="/share">Share it now</a></p>
-    <ul>
-       <li><a href="/" class="on">Haitian Voices</a></li>
-     </ul>
-
-    <div class="clearfix"></div>
+    <h1 id='logo'><%= link_to image_tag('/images/logo.png', :alt => 'HaitianVoices') %></h1>
+    <%= link_to image_tag('/images/donate_button.png', :alt => "Donate Now and aid the relief efforts."), '/donate', :class => 'donate_button' %>
+    
+    <div id='menu'>
+      <% ubermenu do |m| %>
+        <% m.action 'Home', '/' %>
+        <% m.action 'About', '/about' %>
+        <% m.action 'News', '/news' %>        
+        <% m.action 'Stories', stories_path %>
+        <% m.action 'Survivors', 'http://offsitelink.com' %>
+        <% m.action 'Galleries', stories_path %>
+      <% end %>
+      <%= link_to 'Share My Story', new_story_path, :class => 'share_button' %>
+    </div>
   </div>
   
   <div id="content">
 
-<p style="color: green"><%= flash[:notice] %></p>
-
-<%= yield %>
+    <p style="color: green"><%= flash[:notice] %></p>
+    <%= yield %>
   </div>
   
   <div id="footer">
     <div class="credit"><%= link_to image_tag('intridea_50x50.png', :title => 'Built by Intridea'), 'http://intridea.com' %></div>
     <p>&copy; 2010 <%= link_to "Haitian Voices", "http://crisiscommons.org/" -%> &mdash; all rights reserved.</p>
-    <p>
+    <p class='menu'>
       <a href="/">Home</a> &bull; 
       <a href="/about">About</a> &bull; 
       <a href="/terms">Terms of Service</a> &bull; 

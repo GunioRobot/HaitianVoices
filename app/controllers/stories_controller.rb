@@ -7,6 +7,7 @@ class StoriesController < ApplicationController
     @tags = Tag.all
     
     respond_to do |format|
+      format.html
       format.json { render :json => @stories }
       format.xml  { render :xml => @stories }
       format.html
@@ -17,6 +18,7 @@ class StoriesController < ApplicationController
     @story = Story.find(params[:id])
     
     respond_to do |format|
+      format.html
       format.json { render :json => @story }
       format.xml  { render :xml => @story }
       format.html

@@ -1,9 +1,87 @@
 @import reset
 @import mixins
+@import fonts
 
+html, body
+  :min-height 100%
+  
 body
-  :background #ebddad url(/images/body_bg.jpg)
+  :background #423b1f url(/images/pattern_30.png)
+  :font-family "Museo Slab"
+  
+#wrapper
+  :min-height 100%
+  :width 800px
+  :margin 0 auto
+  :background white url(/images/pattern_30.png)
+  :border 10px solid #665533
+  :border-top 0
+  :padding 0 30px 30px
+  +round_bottom(20px)
+  
+#header
+  +clearfix
+  :margin-bottom 15px
+  h1#logo
+    :float left
+    :margin-top 10px
+  a.donate_button
+    :float right
+    :margin-top 30px
+    :display block
+  div#menu
+    :clear both
+    +clearfix
+    :padding-top 10px
+    ul
+      +clearfix
+      :background #114 url(/images/pattern_30.png)
+      :border 3px solid #114
+      +round(8px)
+      :float left
+      li
+        :float left
+        a
+          :color white
+          :display block
+          :padding 8px 20px
+          :text-decoration none
+          :font-size 16px
 
+        &.current a, & a:hover
+          :background #347
+          :color #ddf
+    a.share_button
+      :background #edb url(/images/pattern_50.png)
+      +round(8px)
+      :border 3px solid #ca7
+      :display block
+      :float right
+      :padding 8px 40px
+      :text-decoration none
+      :color #752
+      &:hover
+        :background-color #fec
+
+#footer
+  +clearfix
+  :background #542
+  +round_bottom(10px)
+  :margin 30px -30px -30px
+  :padding 15px
+  :color #fec
+  .credit
+    :float right
+  a
+    :color #fff
+  p
+    :font-size 16px
+    :margin-top 7px
+    :margin-left 10px
+    &.menu
+      :font-size 14px
+      :margin-top 7px
+    
 .pagination
   a, .disabled
     :padding 2px 2px
@@ -26,4 +104,3 @@ a.sort
     :background url(/images/up.png) no-repeat top right
   &.desc
     :background url(/images/down.png) no-repeat top right
-
