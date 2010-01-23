@@ -19,7 +19,12 @@
     <%= f.label :body, 'Your Story: <span>tell us your experiences</span>' %><br />
     <%= f.text_area :body, :class => 'tall' %>
   </p>
-  
+
+  <p>
+    <%= f.label :url, 'Youtube URL: <span>show us your experiences</span>' %><br />
+    <%= f.text_field :url, :class => 'long' %>
+  </p>
+
   <p>
     <%= f.label :about, 'A little about you: <span>contact information, a brief bio, whatever you care to share<br>(this will not show up on the site - this is here in case our volunteers need to get in touch)</br>' %><br />
     <%= f.text_area :about, :class => 'thin' %>
@@ -33,7 +38,7 @@
   
   <p>
     <%= f.label :language, 'This story is recorded in:' %>
-    <%= select "story", "language_id", @langs %>
+    <%= select "story", "language_id", langs %>
   </p>
 
   <p>

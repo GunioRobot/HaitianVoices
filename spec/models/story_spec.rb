@@ -14,4 +14,10 @@ describe Story do
     Story.tagged_with("bar").all(:order => "id").should == [@bar, @foo_bar]
   end
   
+  it "should be searchable" do
+    @foo = Factory(:story, :body => "This is about foo.")
+    @bar = Factory(:story, :body => "This is about bar.")
+    Story.search("foo").all.should == [@foo]
+  end
+  
 end

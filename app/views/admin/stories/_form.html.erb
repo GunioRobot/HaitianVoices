@@ -6,12 +6,15 @@
   <%= f.label :body, 'Your Story: <span>tell us your experiences</span>' %><br />
   <%= f.text_area :body, :class => 'tall' %>
 </p>
-
+  <% f.fields_for :video do |video| %>
+<p>
+  <%= f.label :url, 'Youtube URL: <span>show us your experiences</span>' %><br />
+  <%= f.text_field :url, :class => 'long' %>
+</p>
 <p>
   <%= f.label :about, 'A little about you: <span>contact information, a brief bio, whatever you care to share</span>' %><br />
   <%= f.text_area :about, :class => 'thin' %>
 </p>
-
 <p>
   <%= f.label :tag_list, 'Tags <span>Comma-seperated</span>' %><br />
   <%= f.text_field :tag_list, :class => 'long' %>
