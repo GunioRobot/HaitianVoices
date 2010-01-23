@@ -3,4 +3,16 @@
 <%= render @story %>
 <%= youtube_embed(@story) %>
 
+<% unless @story.translations.empty? %>
+  <div class="story">
+    <h2>This story is also available in these languages</h2>
+    <ul>
+      <% @story.translations.each { |s| %>
+        <li><%=link_to s.language.title, translations_path(:story => @story, :language => s.language_id) %>
+      <% } %>
+    </ul>
+  </div>
+<% end %>
+
+<%= link_to 'Translate this story into another language', new_translation_path(:story => @story) %> |
 <%= link_to 'Back', stories_path %>

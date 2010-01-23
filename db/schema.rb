@@ -9,7 +9,11 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema.define(:version => 20100123214023) do
+=======
+ActiveRecord::Schema.define(:version => 20100123211656) do
+>>>>>>> Assosciates Story with Translations.
 
   create_table "languages", :force => true do |t|
     t.string   "title"
@@ -24,7 +28,10 @@ ActiveRecord::Schema.define(:version => 20100123214023) do
     t.integer  "photo_file_size"
     t.datetime "created_at"
     t.datetime "updated_at"
+<<<<<<< HEAD
     t.integer  "story_id"
+=======
+>>>>>>> Assosciates Story with Translations.
   end
 
   create_table "stories", :force => true do |t|
@@ -67,6 +74,7 @@ ActiveRecord::Schema.define(:version => 20100123214023) do
     t.datetime "approved_on"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "story_id"
   end
 
   create_table "users", :force => true do |t|

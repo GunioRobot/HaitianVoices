@@ -1,0 +1,37 @@
+<h1>New Translation<%=h " for #{@story.title}" unless @story.title.blank? %></h1>
+
+<% form_for( @translation ) do |f| %>
+  <%= f.error_messages %>
+  <%= hidden_field_tag 'story_id', @story.id %>
+  <p>
+    <%= f.label :language, 'You are translating this story into:' %>
+    <%= select "translation", "language_id", @langs %>
+  </p>
+  
+  <p>
+    <%= f.label :title, 'Translated Title:' %><br />
+    <%= f.text_field :title, :class => 'long' %><br />
+    Original Title: <span><%=h @story.title %></span>
+  </p>
+  <p>
+    <%= f.label :body, 'Translated Story:' %><br />
+    <%= f.text_area :body, :class => 'tall' %>
+  </p>
+  <p>
+    Original Story<br />
+    <%=h @story.body %>
+  </p>
+
+  <p>
+    <label>Spam prevention: <span>so we can tell you're human</span></label><br/>
+    <%= recaptcha_tags %><br/>
+  </p>
+  
+  <p>
+    <%= f.submit 'Add Your Story' %>
+  </p>
+<% end %>
+
+<p>
+  <%= link_to 'Back to Story', stories_path %>
+</p>
