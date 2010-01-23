@@ -136,6 +136,37 @@ body {
       #header div#menu a.share_button:hover {
         background-color: #fec; }
 
+#footer {
+  display: inline-block;
+  display: block;
+  background: #542;
+  -moz-border-radius-bottomleft: 10px;
+  -webkit-border-bottom-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+  -moz-border-radius-bottomright: 10px;
+  -webkit-border-bottom-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+  margin: 30px -30px -30px;
+  padding: 15px;
+  color: #fec; }
+  #footer:after {
+    content: ".";
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden; }
+  #footer .credit {
+    float: right; }
+  #footer a {
+    color: #fff; }
+  #footer p {
+    font-size: 16px;
+    margin-top: 7px;
+    margin-left: 10px; }
+    #footer p.menu {
+      font-size: 14px;
+      margin-top: 7px; }
+
 .pagination {
   text-align: right;
   padding-right: 5px;
