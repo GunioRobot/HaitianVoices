@@ -16,5 +16,5 @@ class User < ActiveRecord::Base
   def role_name
     self.class.roles[role].first.titleize
   end
-  
+
 end

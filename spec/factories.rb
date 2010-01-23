@@ -5,6 +5,7 @@ Factory.define :story do |f|
   f.title {Faker::Lorem.words(4).join(" ")}
   f.body {Faker::Lorem.paragraph(5)}
   f.about {Faker::Lorem.paragraph(2)}
+  f.approved true
 end
 
 Factory.define :user do |f|
