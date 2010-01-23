@@ -1,7 +1,7 @@
 class StoriesController < ApplicationController
 
   def index
-    @story = Story.approved.by_date
+    @stories = Story.approved.by_date
   end
 
   def show
