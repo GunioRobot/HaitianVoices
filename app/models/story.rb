@@ -20,6 +20,8 @@ class Story < ActiveRecord::Base
   named_scope :approved, :conditions => { :approved => true }
 
   named_scope :search, lambda {|q| {:conditions => ["body like ?", "%#{q}%"]}}
+  named_scope :text, lambda {|q| {:conditions => ["url is null"]}}
+  named_scope :video, lambda {|q| {:conditions => ["url is not null"]}}
 
   before_save :add_pictures
 

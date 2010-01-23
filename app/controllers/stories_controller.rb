@@ -1,7 +1,13 @@
 class StoriesController < ApplicationController
 
   def index
-    scope = Story.approved.by_date(params[:sort]).tagged_with(params[:tag])
+    if params[:filter] == 'text'
+      scope = Story.approved.text.by_date(params[:sort]).tagged_with(params[:tag])
+    elsif params[:filter] == 'video'
+      scope = Story.approved.video.by_date(params[:sort]).tagged_with(params[:tag])
+    else
+      scope = Story.approved.by_date(params[:sort]).tagged_with(params[:tag])
+    end
     scope = scope.search(params[:q]) unless params[:q].blank?
     @stories = scope.paginate(pagination_options)
     @tags = Tag.all
