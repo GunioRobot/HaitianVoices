@@ -1,6 +1,7 @@
 bundle_path 'vendor/bundler_gems'
 gem "rails", "2.3.5"
 gem "haml"
+gem "andand"
 
 only :test do
   gem "factory_girl", "1.2.3"
