@@ -7,19 +7,14 @@ ActionController::Routing::Routes.draw do |map|
 
   map.resources :stories
 
-
-
   map.namespace :admin do |admin|
-
     admin.root :controller => 'stories'
     
     admin.resources :stories, :member => { :approve => :put, :disapprove => :put }
+    admin.resources :users
     admin.resource :user_session
     admin.resource :account, :controller => "users"
-    admin.resources :users
-    
   end
-
 
   # The priority is based upon order of creation: first created -> highest priority.
 
