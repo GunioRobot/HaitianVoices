@@ -1,2 +1,19 @@
-// Place your application-specific JavaScript functions and classes here
-// This file is automatically included by javascript_include_tag :defaults
+$(document).ready(function() {
+  $('#filter').change(function(){
+    query = $.query.set('filter', $(this).val());
+    window.location = window.location.pathname + query;
+  });
+
+  $('.sort').click(function(){
+    sort = $.query.get('sort');
+    if(sort == 'desc'){
+      sort = 'asc';
+    } else {
+      sort = 'desc';
+    }
+    query = $.query.set('sort', sort);
+    window.location = window.location.pathname + query;
+    return false;
+  });
+});
+

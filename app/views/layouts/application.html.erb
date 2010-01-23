@@ -8,11 +8,7 @@
 <title>Home &bull; Haitian Voices</title>
 
 <%= stylesheet_link_tag 'master', 'scaffold', 'styles' %>
-
-<%= javascript_include_tag "jquery.min.js" %>
-<script type="text/javascript">
-jQuery.noConflict();
-</script>
+<%= javascript_include_tag "jquery.min.js", "application.js", 'jquery.query.js' %>
 
 <%= yield :html_head %>
 
@@ -38,6 +34,7 @@ jQuery.noConflict();
   </div>
   
   <div id="content">
+    <%= debug params %>
 
     <p style="color: green"><%= flash[:notice] %></p>
     <%= yield %>

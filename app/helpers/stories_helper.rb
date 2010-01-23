@@ -9,7 +9,10 @@ module StoriesHelper
   end
 
   def story_filter
-    select_tag "filter", options_for_select(["All", "Text", "Audio", "Video"])
+    select_tag "filter", options_for_select([["All", 'all'], 
+                                             ["Text", 'text'], 
+                                             ["Video", 'video']], 
+                                            :selected => params[:filter])
   end
 
   def youtube_embed(story, width=425, height=350)
