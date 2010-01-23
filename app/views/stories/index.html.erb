@@ -5,6 +5,12 @@
   <%= params[:tag]? "Stories tagged with #{params[:tag]}" : 'All Stories'%>
 </h2>
 
+<div id="search">
+  <% form_tag({}, :method => :get) do %>
+    <%= text_field_tag "q", params[:q] %>
+    <%= submit_tag "Search" %>
+  <% end %>
+</div>
 
 <div id="stories">  
   Sort: <%= story_filter %> by <%= story_date_sort %> 
