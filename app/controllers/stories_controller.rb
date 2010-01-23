@@ -4,6 +4,7 @@ class StoriesController < ApplicationController
     @stories = Story.approved.by_date(params[:sort]).paginate(pagination_options)
     
     respond_to do |format|
+      format.html
       format.json { render :json => @stories }
       format.xml  { render :xml => @stories }
     end
@@ -13,6 +14,7 @@ class StoriesController < ApplicationController
     @story = Story.find(params[:id])
     
     respond_to do |format|
+      format.html
       format.json { render :json => @story }
       format.xml  { render :xml => @story }
     end    

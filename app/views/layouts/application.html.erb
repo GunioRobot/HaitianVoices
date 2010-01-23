@@ -21,12 +21,19 @@
 <body>
 <div id="wrapper">
   <div id="header">
-    <p>Do you have a story to share? <a href="/share">Share it now</a></p>
-    <ul>
-       <li><a href="/" class="on">Haitian Voices</a></li>
-     </ul>
-
-    <div class="clearfix"></div>
+    <h1 id='logo'><%= link_to image_tag('/images/logo.png', :alt => 'HaitianVoices') %></h1>
+    <%= link_to image_tag('/images/donate_button.png', :alt => "Donate Now and aid the relief efforts."), '/donate', :class => 'donate_button' %>
+    
+    <div id='menu'>
+      <% ubermenu do |m| %>
+        <% m.action 'Home', '/' %>
+        <% m.action 'About HaitianStories', '/about' %>
+        <% m.action 'Stores', stories_path %>
+        <% m.action 'Survivors', 'http://offsitelink.com' %>
+        <% m.action 'Galleries', stories_path %>
+      <% end %>
+      <%= link_to 'Share My Story', new_story_path, :class => 'share_button' %>
+    </div>
   </div>
   
   <div id="content">
