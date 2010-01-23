@@ -1,7 +1,7 @@
 class StoriesController < ApplicationController
 
   def index
-    @stories = Story.approved.all
+    @story = Story.random
   end
 
   def show

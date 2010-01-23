@@ -2,11 +2,9 @@
 
 <div id="stories">
   
-  <% @stories.each do |story| %>
-  <h2><%=h story.title %></h2>
+  <h2><%=h @story.title %></h2>
   <div class="story">
-    <p><%=h story.truncated_body %> <%= link_to 'Continue Reading', story_path(story) if story.truncated_body.length < story.body.length %></p>
+    <p><%=h @story.truncated_body %> <%= link_to 'Continue Reading', story_path(@story) %></p>
   </div>
-  <% end %>
 
 </div>
