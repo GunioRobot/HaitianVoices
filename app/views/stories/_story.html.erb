@@ -1,13 +1,7 @@
 <div class='story'>
-<<<<<<< HEAD:app/views/stories/_story.html.erb
   <% if story.title %>
-    <h3><%=h story.title %></h3>
-=======
-  <% if story.title %><h3><%= link_to story.title, story_path(story) %></h3>
-    <p><%= display(story.body )%>
->>>>>>> 6e5ebfb6123f8e47003f6a7aec7f5e55f531e955:app/views/stories/_story.html.erb
+    <h3><%= link_to h(story.title), story_path(story) %></h3>
   <% end %>
-<<<<<<< HEAD:app/views/stories/_story.html.erb
   <p>
     <%= display(story.body) %>
     <% if !(story.pictures.blank?) %>
@@ -19,6 +13,3 @@
     <% end %>
   </p>
 </div>
-=======
-</div>
->>>>>>> 6e5ebfb6123f8e47003f6a7aec7f5e55f531e955:app/views/stories/_story.html.erb
