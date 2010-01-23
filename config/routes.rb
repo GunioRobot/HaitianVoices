@@ -10,6 +10,7 @@ ActionController::Routing::Routes.draw do |map|
   map.share '/share', :controller => 'stories', :action => 'new'
 
   map.resources :stories
+  map.tagged_stories "/tags/:tag/stories", :controller => 'stories'
 
   map.namespace :admin do |admin|
     admin.resources :stories, :member => { :approve => :put, :disapprove => :put }

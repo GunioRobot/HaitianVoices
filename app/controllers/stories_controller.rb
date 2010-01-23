@@ -1,7 +1,8 @@
 class StoriesController < ApplicationController
 
   def index
-    @stories = Story.approved.by_date(params[:sort]).paginate(pagination_options)
+    @stories = Story.approved.by_date(params[:sort]).tagged_with(params[:tag]).paginate(pagination_options)
+    @tags = Tag.all
     
     respond_to do |format|
       format.html
