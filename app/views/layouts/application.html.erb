@@ -29,7 +29,7 @@ jQuery.noConflict();
         <% m.action 'Home', '/' %>
         <% m.action 'About', '/about' %>
         <% m.action 'News', '/news' %>        
-        <% m.action 'Stores', stories_path %>
+        <% m.action 'Stories', stories_path %>
         <% m.action 'Survivors', 'http://offsitelink.com' %>
         <% m.action 'Galleries', stories_path %>
       <% end %>
@@ -39,9 +39,8 @@ jQuery.noConflict();
   
   <div id="content">
 
-<p style="color: green"><%= flash[:notice] %></p>
-
-<%= yield %>
+    <p style="color: green"><%= flash[:notice] %></p>
+    <%= yield %>
   </div>
   
   <div id="footer">

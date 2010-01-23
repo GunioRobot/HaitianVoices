@@ -17,6 +17,15 @@ ActiveRecord::Schema.define(:version => 20100123203459) do
     t.datetime "updated_at"
   end
 
+  create_table "pictures", :force => true do |t|
+    t.string   "caption"
+    t.string   "photo_file_name"
+    t.string   "photo_content_type"
+    t.integer  "photo_file_size"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "stories", :force => true do |t|
     t.string   "title"
     t.text     "body"
