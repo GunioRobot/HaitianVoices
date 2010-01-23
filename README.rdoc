@@ -43,4 +43,15 @@ View the application:
   ruby script/server
   view at http://localhost:3000
 
+== Testing
 
+We're using Cucumber and Rspec.
+
+Setup the test:database
+  rake db:test:clone
+
+Run Rspec
+  rake rspec
+
+Run Cucumber
+  Rake cucumber
