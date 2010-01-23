@@ -3,6 +3,7 @@
 
 <h2><%=h @story.title %></h2>
 <div class="story">
+  <p><%=h @story.language.title %></p>
   <p><%=h @story.body %></p>
   <p class="tags"><b>Tags</b>: <%= @story.tags.map{|t| t.name }.join(", ") %></p>  
   <p>

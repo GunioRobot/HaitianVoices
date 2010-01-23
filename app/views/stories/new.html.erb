@@ -1,8 +1,16 @@
+<% content_for :html_head do %>
+<%= javascript_include_tag "stories" %>
+<% end %>
+
 <h1>Add Your Story</h1>
 
-<% form_for( @story ) do |f| %>
+<% form_for( @story, :html => { :multipart => true }) do |f| %>
   <%= f.error_messages %>
-
+  
+  <% if flash[:error] %>
+    <p><%=h flash[:error] %></p>
+  <% end %>
+  
   <p>
     <%= f.label :title, 'Title: <span>a short summary</span>' %><br />
     <%= f.text_field :title, :class => 'long' %>
@@ -16,7 +24,18 @@
     <%= f.label :about, 'A little about you: <span>contact information, a brief bio, whatever you care to share<br>(this will not show up on the site - this is here in case our volunteers need to get in touch)</br>' %><br />
     <%= f.text_area :about, :class => 'thin' %>
   </p>  
+
+  <p id="photos">
+    <label>Photos</label>
+    <br />
+    <%= file_field_tag "story[picture_files][]", :class => 'thin photo_field', :id => nil %>
+  </p>
   
+  <p>
+    <%= f.label :language, 'This story is recorded in:' %>
+    <%= select "story", "language_id", @langs %>
+  </p>
+
   <p>
   <label>Spam prevention: <span>so we can tell you're human</span></label><br/>
   <%= recaptcha_tags %><br/>
