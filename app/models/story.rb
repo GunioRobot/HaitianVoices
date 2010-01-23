@@ -16,6 +16,8 @@ class Story < ActiveRecord::Base
   named_scope :by_date, lambda { |sort| { :order => "created_at #{sort}"} }
   named_scope :approved, :conditions => { :approved => true }
 
+  named_scope :search, lambda {|q| {:conditions => ["body like ?", "%#{q}%"]}}
+
   before_save :add_pictures
 
   def self.random
