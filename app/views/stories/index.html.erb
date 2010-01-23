@@ -1,16 +1,17 @@
+<div class="find">
+  <% form_tag({}, :method => :get, :class => 'search') do %>
+    <%= text_field_tag "q", params[:q] %>
+    <%= submit_tag "Search" %>
+  <% end %>
+  <div class='sorting'><b>Sort:</b> <%= story_filter %> by <%= story_date_sort %></div>
+</div>
+
 <h2> 
   <%= params[:tag]? "Stories tagged with #{params[:tag]}" : 'Haitian Stories'%>
 </h2>
 
-<div id="search">
-  <% form_tag({}, :method => :get) do %>
-    <%= text_field_tag "q", params[:q] %>
-    <%= submit_tag "Search" %>
-  <% end %>
-</div>
-
 <div id="stories">  
-  Sort: <%= story_filter %> by <%= story_date_sort %> 
+  
   <%= render :partial => @stories %>
   <%= will_paginate(@stories) %>
 </div>

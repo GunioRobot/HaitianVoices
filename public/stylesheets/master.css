@@ -142,7 +142,16 @@ a {
 h2 {
   font-size: 28px;
   color: #458;
-  letter-spacing: -0.03em; }
+  letter-spacing: -0.03em;
+  display: inline-block;
+  display: block;
+  margin-bottom: 25px; }
+  h2:after {
+    content: ".";
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden; }
 
 div.story h3 {
   font-size: 20px;
@@ -159,6 +168,23 @@ div.story div.body {
   -moz-border-radius: 15px;
   -webkit-border-radius: 15px;
   border-radius: 15px; }
+
+.find {
+  padding: 5px 0;
+  display: inline-block;
+  display: block;
+  float: right; }
+  .find:after {
+    content: ".";
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden; }
+  .find .search {
+    float: right;
+    margin-left: 10px; }
+  .find .sorting {
+    float: left; }
 
 #footer {
   display: inline-block;
