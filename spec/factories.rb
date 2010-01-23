@@ -8,9 +8,9 @@ Factory.define :story do |f|
 end
 
 Factory.define :user do |f|
-  f.first_name { Faker::Name.first_name }
-  f.last_name { Faker::Name.last_name }
-  f.login {|u| "#{u.first_name[0,1]}#{u.last_name}".downcase }
+  f.first_name "Test"
+  f.last_name "User"
+  f.sequence(:login) {|n| "test_user_#{n}" }
   f.email {|u| "#{u.login}@example.com" }
   f.password "password"
   f.password_confirmation {|u| u.password }
