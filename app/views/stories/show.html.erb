@@ -1,9 +1,5 @@
 <h1>A Story</h1>
 
-<h2><%=h @story.title %></h2>
-<div class="story">
-  <p><%=h @story.body.gsub!(/\n/, '<br />')
-   %></p>
-</div>
+<%= render @story %>
 
 <%= link_to 'Back', stories_path %>

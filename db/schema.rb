@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100119081900) do
+ActiveRecord::Schema.define(:version => 20100123170309) do
 
   create_table "stories", :force => true do |t|
     t.string   "title"
@@ -32,7 +32,7 @@ ActiveRecord::Schema.define(:version => 20100119081900) do
     t.string   "persistence_token",                  :null => false
     t.string   "single_access_token",                :null => false
     t.string   "perishable_token",                   :null => false
-    t.string   "twitter",                            :null => false
+    t.string   "twitter"
     t.integer  "login_count",         :default => 0, :null => false
     t.integer  "failed_login_count",  :default => 0, :null => false
     t.datetime "last_request_at"
