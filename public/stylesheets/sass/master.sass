@@ -37,15 +37,31 @@ body
       +clearfix
       :background #114 url(/images/pattern_30.png)
       :border 3px solid #114
-      +round(6px)
+      +round(8px)
+      :float left
       li
         :float left
         a
           :color white
           :display block
-          :padding 8px 12px
+          :padding 8px 20px
           :text-decoration none
           :font-size 16px
+
+        &.current a, & a:hover
+          :background #347
+          :color #ddf
+    a.share_button
+      :background #edb url(/images/pattern_50.png)
+      +round(8px)
+      :border 3px solid #ca7
+      :display block
+      :float right
+      :padding 8px 40px
+      :text-decoration none
+      :color #752
+      &:hover
+        :background-color #fec
 
 .pagination
   a, .disabled

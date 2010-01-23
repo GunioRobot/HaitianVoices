@@ -101,9 +101,10 @@ body {
       display: block;
       background: #114 url(/images/pattern_30.png);
       border: 3px solid #114;
-      -moz-border-radius: 6px;
-      -webkit-border-radius: 6px;
-      border-radius: 6px; }
+      -moz-border-radius: 8px;
+      -webkit-border-radius: 8px;
+      border-radius: 8px;
+      float: left; }
       #header div#menu ul:after {
         content: ".";
         display: block;
@@ -115,9 +116,25 @@ body {
         #header div#menu ul li a {
           color: white;
           display: block;
-          padding: 8px 12px;
+          padding: 8px 20px;
           text-decoration: none;
           font-size: 16px; }
+        #header div#menu ul li.current a, #header div#menu ul li a:hover {
+          background: #347;
+          color: #ddf; }
+    #header div#menu a.share_button {
+      background: #edb url(/images/pattern_50.png);
+      -moz-border-radius: 8px;
+      -webkit-border-radius: 8px;
+      border-radius: 8px;
+      border: 3px solid #ca7;
+      display: block;
+      float: right;
+      padding: 8px 40px;
+      text-decoration: none;
+      color: #752; }
+      #header div#menu a.share_button:hover {
+        background-color: #fec; }
 
 .pagination {
   text-align: right;
