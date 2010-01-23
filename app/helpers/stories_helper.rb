@@ -19,5 +19,9 @@ module StoriesHelper
     markup << "<embed src='#{story.youtube_embed_url}' type='application/x-shockwave-flash' width='#{width}' height='#{height}'></embed>"
     markup << "</object>"
   end
+
+  def langs
+    @langs ||= Language.find(:all, :order => 'title').map{ |lang| [lang.title, lang.id]} 
+  end
   
 end

@@ -25,7 +25,6 @@ class StoriesController < ApplicationController
   
   def new
     @story = Story.new
-    @langs = Language.find(:all, :order => 'title').map{ |lang| [lang.title, lang.id]} 
   end
   
   def create
