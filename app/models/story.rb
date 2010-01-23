@@ -4,7 +4,8 @@ class Story < ActiveRecord::Base
 
   attr_protected :approved, :approved_by, :approved_on
 
-  named_scope :by_date, :order => "created_at DESC"
+  #named_scope :by_date, :order => "created_at DESC"
+  named_scope :by_date, lambda { |sort| { :order => "created_at #{sort}"} }
   named_scope :approved, :conditions => { :approved => true }
 
   def self.random

@@ -2,6 +2,7 @@
 
 <h2>All Stories</h2>
 <div id="stories">  
+  <%= story_date_sort %>
   <%= will_paginate(@stories) %>
   <%= render :partial => @stories %>
   <%= will_paginate(@stories) %>
