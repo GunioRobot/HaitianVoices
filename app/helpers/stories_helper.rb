@@ -4,7 +4,7 @@ module StoriesHelper
   end
 
   def story_date_sort
-    sort = params[:sort] == 'DESC' ? 'ASC' : 'DESC'
+    sort = params[:sort].downcase  == 'desc' ? 'asc' : 'desc'
     link_to 'Date', stories_path(:sort => sort), :class => "sort #{sort.downcase}"
   end
 
