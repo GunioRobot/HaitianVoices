@@ -1,17 +1,5 @@
 <h1>Haitian Voices</h1>
 
-<div id="stories">
-  
-  <% if @story %>
-    <h2><%=h @story.title %></h2>
-    <div class="story">
-      <p><%=h @story.truncated_body %> <%= link_to 'Continue Reading', story_path(@story) %></p>
-    </div>
-  <% else %>
-    <h2>Please Add Your Story</h2>
-    <div class="story">
-      <p>No stories in database yet</p>
-    </div>
-  <% end %>
-
+<div id="stories">  
+  <%= render :partial => @stories %>
 </div>
