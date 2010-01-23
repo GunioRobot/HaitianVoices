@@ -9,13 +9,10 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100123194634) do
+ActiveRecord::Schema.define(:version => 20100123190456) do
 
-  create_table "pictures", :force => true do |t|
-    t.string   "caption"
-    t.string   "photo_file_name"
-    t.string   "photo_content_type"
-    t.integer  "photo_file_size"
+  create_table "languages", :force => true do |t|
+    t.string   "title"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -29,23 +26,18 @@ ActiveRecord::Schema.define(:version => 20100123194634) do
     t.integer  "approved_by"
     t.datetime "approved_on"
     t.text     "about"
+    t.integer  "language_id"
   end
 
-  create_table "taggings", :force => true do |t|
-    t.integer  "tag_id"
-    t.integer  "taggable_id"
-    t.integer  "tagger_id"
-    t.string   "tagger_type"
-    t.string   "taggable_type"
-    t.string   "context"
+  create_table "translations", :force => true do |t|
+    t.integer  "story_id"
+    t.integer  "language_id"
+    t.text     "body"
+    t.boolean  "approved",    :default => false
+    t.integer  "approved_by"
+    t.datetime "approved_on"
     t.datetime "created_at"
-  end
-
-  add_index "taggings", ["tag_id"], :name => "index_taggings_on_tag_id"
-  add_index "taggings", ["taggable_id", "taggable_type", "context"], :name => "index_taggings_on_taggable_id_and_taggable_type_and_context"
-
-  create_table "tags", :force => true do |t|
-    t.string "name"
+    t.datetime "updated_at"
   end
 
   create_table "users", :force => true do |t|
