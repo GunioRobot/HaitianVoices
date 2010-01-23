@@ -9,12 +9,12 @@
 
 <%= stylesheet_link_tag 'master', 'scaffold', 'styles' %>
 
-<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.0/jquery.min.js"></script>
+<%= javascript_include_tag "jquery.min.js" %>
 <script type="text/javascript">
-  $(document).ready(function() {
-    //
-  });
+jQuery.noConflict();
 </script>
+
+<%= yield :html_head %>
 
 </head>
 
@@ -54,7 +54,7 @@
       <a href="/privacy">Privacy Policy</a> &bull; 
       <a href="/share">Share a Story</a>
       <% if current_user %>
-        &bull; <%= link_to 'Admin', admin_stories_path %>
+        &bull; <%= link_to 'Admin', '/admin' %>
         &bull; <%= link_to 'Log Out', admin_user_session_path, :method => :delete %>
       <% end -%>
     </p>

@@ -8,3 +8,5 @@ config/database.yml
 bin
 vendor/bundler_gems
 db/schema.rb
+*~
+public/system/**

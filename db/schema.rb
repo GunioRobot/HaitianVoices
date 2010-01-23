@@ -9,7 +9,13 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100123192643) do
+ActiveRecord::Schema.define(:version => 20100123203459) do
+
+  create_table "languages", :force => true do |t|
+    t.string   "title"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "stories", :force => true do |t|
     t.string   "title"
@@ -20,6 +26,7 @@ ActiveRecord::Schema.define(:version => 20100123192643) do
     t.integer  "approved_by"
     t.datetime "approved_on"
     t.text     "about"
+    t.integer  "language_id"
   end
 
   create_table "taggings", :force => true do |t|
@@ -37,6 +44,18 @@ ActiveRecord::Schema.define(:version => 20100123192643) do
 
   create_table "tags", :force => true do |t|
     t.string "name"
+  end
+
+  create_table "translations", :force => true do |t|
+    t.integer  "language_id"
+    t.integer  "user_id"
+    t.string   "title"
+    t.text     "body"
+    t.boolean  "approved",    :default => false
+    t.integer  "approved_by"
+    t.datetime "approved_on"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "users", :force => true do |t|

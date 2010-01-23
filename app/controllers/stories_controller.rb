@@ -7,6 +7,7 @@ class StoriesController < ApplicationController
       format.html
       format.json { render :json => @stories }
       format.xml  { render :xml => @stories }
+      format.html
     end
   end
 
@@ -17,11 +18,13 @@ class StoriesController < ApplicationController
       format.html
       format.json { render :json => @story }
       format.xml  { render :xml => @story }
+      format.html
     end    
   end
   
   def new
     @story = Story.new
+    @langs = Language.find(:all, :order => 'title').map{ |lang| [lang.title, lang.id]} 
   end
   
   def create
@@ -30,9 +33,9 @@ class StoriesController < ApplicationController
 
     if verify_recaptcha
       if @story.save
+        flash[:notice] = "Thank you for sharing your story with Haitian Voices.  Our team of moderators review every story that comes before making them live on the website.  This process may take up to 2-3 days."
         redirect_to story_path( @story )
       else
-        flashe[:notice] = "Thank you for sharing your story with Haitian Voices.  Our team of moderators review every story that comes before making them live on the website.  This process may take up to 2-3 days."
         render :action => "new"
       end
     else
