@@ -7,7 +7,7 @@
 
 
 <div id="stories">  
-  <%= story_date_sort %>
+  Sort: <%= story_filter %> by <%= story_date_sort %> 
   <%= will_paginate(@stories) %>
   <%= render :partial => @stories %>
   <%= will_paginate(@stories) %>
