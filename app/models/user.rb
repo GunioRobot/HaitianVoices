@@ -12,4 +12,9 @@ class User < ActiveRecord::Base
   roles.each do |r|
     define_method("#{r.first}?") { role == r.last }
   end
+  
+  def role_name
+    self.class.roles[role].first.titleize
+  end
+
 end

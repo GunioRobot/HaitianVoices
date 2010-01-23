@@ -1,5 +1,9 @@
 class Admin::UsersController < AdminController
   
+  def index
+    @users = User.all
+  end
+  
   def new
     @user = User.new
   end
@@ -7,8 +11,8 @@ class Admin::UsersController < AdminController
   def create
     @user = User.new(params[:user])
     if @user.save
-      flash[:notice] = "Account registered!"
-      redirect_back_or_default admin_account_url
+      flash[:notice] = "Account created"
+      redirect_to [:admin, @user]
     else
       render :action => :new
     end
@@ -25,8 +29,8 @@ class Admin::UsersController < AdminController
   def update
     @user = User.find(params[:id])
     if @user.update_attributes(params[:user])
-      flash[:notice] = "Account updated!"
-      redirect_to admin_account_url
+      flash[:notice] = "Account updated"
+      redirect_to [:admin, @user]
     else
       render :action => :edit
     end

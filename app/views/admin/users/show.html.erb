@@ -2,6 +2,26 @@
   <b>Login:</b>
   <%=h @user.login %>
 </p>
+
+<p>
+  <b>First Name:</b>
+  <%=h @user.first_name %>
+</p>
+
+<p>
+  <b>Last Name:</b>
+  <%=h @user.last_name %>
+</p>
+
+<p>
+  <b>Email:</b>
+  <%=h @user.email %>
+</p>
+
+<p>
+  <b>Role:</b>
+  <%=h @user.role_name %>
+</p>
  
 <p>
   <b>Login count:</b>
@@ -34,4 +54,8 @@
 </p>
  
  
-<%= link_to 'Edit', edit_admin_user_path %>
+<p>
+  <%= link_to 'Edit', edit_admin_user_path %>
+  |
+  <%= link_to 'All Users', admin_users_path %>
+</p>
