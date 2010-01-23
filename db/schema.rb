@@ -37,6 +37,7 @@ ActiveRecord::Schema.define(:version => 20100123214023) do
     t.datetime "approved_on"
     t.text     "about"
     t.integer  "language_id"
+    t.string   "url"
   end
 
   create_table "taggings", :force => true do |t|
