@@ -7,4 +7,8 @@ module StoriesHelper
     sort = params[:sort] == 'DESC' ? 'ASC' : 'DESC'
     link_to 'Date', stories_path(:sort => sort), :class => "sort #{sort.downcase}"
   end
+
+  def story_filter
+    select_tag "filter", options_for_select(["All", "Text", "Audio", "Video"])
+  end
 end

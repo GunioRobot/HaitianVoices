@@ -42,6 +42,4 @@ class Story < ActiveRecord::Base
       end
     end
   end
-
-
 end
