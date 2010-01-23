@@ -5,16 +5,8 @@ class User < ActiveRecord::Base
     [["user", 0], ["moderator", 1], ["admin", 2]]
   end
 
-  def self.user_role
-    0
-  end
-  
-  def self.moderator_role
-    1
-  end
-  
-  def self.admin_role
-    2
+  roles.each do |r|
+    (class << self; self end).send(:define_method, "#{r.first}_role") { r.last }
   end
 
   roles.each do |r|
