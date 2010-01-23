@@ -3,19 +3,7 @@
 <% form_for [:admin, @story] do |f| %>
   <%= f.error_messages %>
 
-  <p>
-    <%= f.label :title, 'Title: <span>a short summary</span>' %><br />
-    <%= f.text_field :title, :class => 'long' %>
-  </p>
-  <p>
-    <%= f.label :body, 'Your Story: <span>tell us your experiences</span>' %><br />
-    <%= f.text_area :body, :class => 'tall' %>
-  </p>
-  
-  <p>
-    <%= f.label :about, 'A little about you: <span>contact information, a brief bio, whatever you care to share' %><br />
-    <%= f.text_area :about, :class => 'thin' %>
-  </p>
+  <%= render :partial => "form", :locals => {:f => f} %>
   
   <p>
     <%= f.submit 'Update' %>

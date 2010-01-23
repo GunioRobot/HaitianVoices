@@ -1,0 +1,18 @@
+<p>
+  <%= f.label :title, 'Title: <span>a short summary</span>' %><br />
+  <%= f.text_field :title, :class => 'long' %>
+</p>
+<p>
+  <%= f.label :body, 'Your Story: <span>tell us your experiences</span>' %><br />
+  <%= f.text_area :body, :class => 'tall' %>
+</p>
+
+<p>
+  <%= f.label :about, 'A little about you: <span>contact information, a brief bio, whatever you care to share</span>' %><br />
+  <%= f.text_area :about, :class => 'thin' %>
+</p>
+
+<p>
+  <%= f.label :tag_list, 'Tags <span>Comma-seperated</span>' %><br />
+  <%= f.text_field :tag_list, :class => 'long' %>
+</p>

@@ -1,11 +1,21 @@
 class StoriesController < ApplicationController
 
   def index
-    @stories = Story.approved.by_date.paginate(pagination_options)
+    @stories = Story.approved.by_date(params[:sort]).paginate(pagination_options)
+    
+    respond_to do |format|
+      format.json { render :json => @stories }
+      format.xml  { render :xml => @stories }
+    end
   end
 
   def show
     @story = Story.find(params[:id])
+    
+    respond_to do |format|
+      format.json { render :json => @story }
+      format.xml  { render :xml => @story }
+    end    
   end
   
   def new
