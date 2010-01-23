@@ -1,7 +1,7 @@
 class StoriesController < ApplicationController
 
   def index
-    @stories = Story.approved.by_date
+    @stories = Story.approved.by_date.paginate(pagination_options)
   end
 
   def show

@@ -9,6 +9,10 @@ class ApplicationController < ActionController::Base
   helper_method :current_user_session, :current_user
 
   private
+    def pagination_options
+      {:page => params[:page], :per_page => 20}
+    end
+  
     def current_user_session
       return @current_user_session if defined?(@current_user_session)
       @current_user_session = UserSession.find

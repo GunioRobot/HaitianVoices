@@ -1,5 +1,8 @@
 <h1>Haitian Voices</h1>
 
+<h2>All Stories</h2>
 <div id="stories">  
+  <%= will_paginate(@stories) %>
   <%= render :partial => @stories %>
+  <%= will_paginate(@stories) %>
 </div>

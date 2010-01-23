@@ -12,5 +12,4 @@ class User < ActiveRecord::Base
   roles.each do |r|
     define_method("#{r.first}?") { role == r.last }
   end
-  
 end
