@@ -9,6 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema.define(:version => 20100123203459) do
 
   create_table "languages", :force => true do |t|
@@ -16,6 +17,9 @@ ActiveRecord::Schema.define(:version => 20100123203459) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+=======
+ActiveRecord::Schema.define(:version => 20100123211642) do
+>>>>>>> Add Story#url as a placeholder for video integration
 
   create_table "pictures", :force => true do |t|
     t.string   "caption"
@@ -35,7 +39,11 @@ ActiveRecord::Schema.define(:version => 20100123203459) do
     t.integer  "approved_by"
     t.datetime "approved_on"
     t.text     "about"
+<<<<<<< HEAD
     t.integer  "language_id"
+=======
+    t.string   "url"
+>>>>>>> Add Story#url as a placeholder for video integration
   end
 
   create_table "taggings", :force => true do |t|
