@@ -16,7 +16,7 @@ class Story < ActiveRecord::Base
   attr_protected :approved, :approved_by, :approved_on
 
   attr_accessor :picture_files
-  named_scope :by_date, lambda { |sort| { :order => "created_at #{sort}"} }
+  named_scope :by_date, lambda { |sort| { :order => "created_at #{sort || 'DESC'}"} }
   named_scope :approved, :conditions => { :approved => true }
 
   named_scope :search, lambda {|q| {:conditions => ["body like ?", "%#{q}%"]}}
