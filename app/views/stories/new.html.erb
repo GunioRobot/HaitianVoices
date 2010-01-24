@@ -3,6 +3,8 @@
 <% end %>
  
 <h1>Add Your Story</h1>
+
+  <p>NOTE: You must be 13 years or older to submit a story. Out of concern for childrens' privacy, we cannot accept information from children younger than 13.</p>
  
 <% form_for( @story, :html => { :multipart => true }) do |f| %>
   <%= f.error_messages %>
@@ -45,6 +47,8 @@
   <label>Spam prevention: <span>so we can tell you're human</span></label><br/>
   <%= recaptcha_tags %><br/>
   </p>
+
+  <p>By clicking the button below, you certify that you are 13 years of age, or older.</p>
   
   <p>
     <%= f.submit 'Add Your Story' %>
