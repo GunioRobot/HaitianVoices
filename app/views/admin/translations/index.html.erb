@@ -1,18 +1,22 @@
 <h1>Listing translations</h1>
 
-<table>
-  <tr>
-  </tr>
+<div id="stories">
+  
+  <% @translations.each do |translation| %>
+  <h2><%=h translation.title %></h2>
+  <div class="story">
+    <p><%=h translation.truncated_body %></p>
+    <p>
+      <%= link_to 'Show', admin_translation_path(translation) %> |
+      <%= link_to 'Edit', edit_admin_translation_path(translation) %> |
+      <% if translation.approved? %>
+        <%= link_to 'Deny', disapprove_admin_translation_path(translation), :method => :put %> |
+      <% else -%>
+        <%= link_to 'Approve', approve_admin_translation_path(translation), :method => :put %> |
+      <% end -%>
+      <%= link_to 'Delete', admin_translation_path(translation), :confirm => 'Are you sure?  There is no undo', :method => :delete %>
+    </p>
+  </div>
+  <% end %>
 
-<% @translations.each do |translation| %>
-  <tr>
-    <td><%= link_to 'Show', translation %></td>
-    <td><%= link_to 'Edit', edit_translation_path(translation) %></td>
-    <td><%= link_to 'Destroy', translation, :confirm => 'Are you sure?', :method => :delete %></td>
-  </tr>
-<% end %>
-</table>
-
-<br />
-
-<%= link_to 'New translation', new_translation_path %>
+</div>

@@ -67,6 +67,7 @@ ActiveRecord::Schema.define(:version => 20100123214023) do
     t.datetime "approved_on"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "story_id"
   end
 
   create_table "users", :force => true do |t|

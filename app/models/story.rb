@@ -12,6 +12,7 @@ class Story < ActiveRecord::Base
   belongs_to :user, :class_name => "User", :foreign_key => "approved_by"
 
   has_many :pictures
+  has_many :translations
 
   attr_protected :approved, :approved_by, :approved_on
 
