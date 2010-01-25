@@ -13,6 +13,7 @@
       <div class='picture'>
         <% story.pictures.each do |pic| %>
           <%= image_tag pic.photo.url(:thumb) %>
+          <%= pic.caption %>
         <% end %>
       </div>
     </div><% end %>
