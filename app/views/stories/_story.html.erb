@@ -1,5 +1,13 @@
 <div class='story'>
   <% if story.title %><h3><%= link_to story.title, story_path(story) %></h3><% end %>
+  <% if @requestedLanguage %>
+    <div class="languages">
+      Read this story in
+      <% @langs.each do |lang| %>
+        <%= link_to lang.title, story_url(:language => lang.title) %>
+      <% end %>
+    </div>
+  <% end %>
   <div class='body'>
     <% if !(story.pictures.blank?) %><div class='media'>
       <div class='picture'>

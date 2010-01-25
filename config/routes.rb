@@ -11,6 +11,7 @@ ActionController::Routing::Routes.draw do |map|
 
   map.resources :stories
   map.tagged_stories "/tags/:tag/stories", :controller => 'stories'
+  map.connect "/stories/:id/:language", :controller => 'stories', :action => 'show'
 
   map.namespace :admin do |admin|
     admin.resources :stories, :member => { :approve => :put, :disapprove => :put }

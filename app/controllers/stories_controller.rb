@@ -22,7 +22,15 @@ class StoriesController < ApplicationController
 
   def show
     @story = Story.find(params[:id])
-    
+    @requestedLanguage = params[:language] ? Language.find_by_title(params[:language]) : @story.language
+    @langs = [@story.language] + @story.translations.approved.map(&:language)
+    if @story.language != @requestedLanguage
+      @translation = @story.translations.approved.select { |s| s.language == @requestedLanguage }.first
+      @story.title = @translation.title
+      @story.body = @translation.body
+      @story.language = @translation.language
+    end
+
     respond_to do |format|
       format.html
       format.json { render :json => @story }
