@@ -4,7 +4,7 @@
     <div class="languages">
       Read this story in
       <% @langs.each do |lang| %>
-        <%= link_to lang.title, story_url(:language => lang.title) %>
+        <%= link_to lang.title, translatedStory_path(:language => lang.title) %>
       <% end %>
     </div>
   <% end %>
