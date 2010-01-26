@@ -55,3 +55,12 @@ Run Rspec
 
 Run Cucumber
   Rake cucumber
+
+== Content
+Run rake task to seed data
+  rake db:seed
+
+Run rake task to populate some content
+  rake web:bg
+
+Copy folders with images from content to public/images. Go to admin page, click on stories and approve newly created stories.
