@@ -2,4 +2,26 @@
 # See http://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
 
 en:
-  hello: "Hello world"
+
+
+#Views/stories/new
+  vsn_form_title: "Add Your Story"
+
+  #on top of the page
+  vsn_young_children: "NOTE: You must be 13 years or older to submit a story. Out of concern for children's privacy, we cannot accept information from children younger than 13."
+  
+  vsn_title_label: "Title: a short summary"
+  vsn_youtube_label: "Youtube URL: <span>show us your experiences</span>"
+
+  vsn_about_you: "A little about you: <span>contact information, a brief bio, whatever you care to share<br>(this will not show up on the site - this is here in case our volunteers need to get in touch)</br>"
+
+  vsn_story_text_label: "Your Story: tell us your experiences"
+
+  vsn_photos_label: "Photos"
+  vsn_language_label: "This story is recorded in:"
+  vsn_captcha_label: "Spam prevention: <span>so we can tell you're human</span>"
+
+  #next to the 'submit' button
+  vsn_certify_age: "By clicking the button below, you certify that you are 13 years of age, or older."
+
+  vsn_submit_button: "Add your story"

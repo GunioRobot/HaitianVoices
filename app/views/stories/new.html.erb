@@ -2,9 +2,9 @@
 <%= javascript_include_tag "stories" %>
 <% end %>
  
-<h1>Add Your Story</h1>
+<h1><%= t :vsn_form_title %></h1>
 
-  <p>NOTE: You must be 13 years or older to submit a story. Out of concern for children's privacy, we cannot accept information from children younger than 13.</p>
+<p><%= t :vsn_young_children %></p>
  
 <% form_for( @story, :html => { :multipart => true }) do |f| %>
   <%= f.error_messages %>
@@ -14,44 +14,44 @@
   <% end %>
   
   <p>
-    <%= f.label :title, 'Title: <span>a short summary</span>' %><br />
+    <%= f.label :title, t(:vsn_title_label) %><br />
     <%= f.text_field :title, :class => 'long' %>
   </p>
   <p>
-    <%= f.label :body, 'Your Story: <span>tell us your experiences</span>' %><br />
+    <%= f.label :body, t(:vsn_story_text_label) %><br />
     <%= f.text_area :body, :class => 'tall' %>
   </p>
 
   <p>
-    <%= f.label :url, 'Youtube URL: <span>show us your experiences</span>' %><br />
+    <%= f.label :url, t(:vsn_youtube_label) %><br />
     <%= f.text_field :url, :class => 'long' %>
   </p>
 
   <p>
-    <%= f.label :about, 'A little about you: <span>contact information, a brief bio, whatever you care to share<br>(this will not show up on the site - this is here in case our volunteers need to get in touch)</br>' %><br />
+    <%= f.label :about, t(:vsn_about_you) %><br />
     <%= f.text_area :about, :class => 'thin' %>
   </p>
  
   <p id="photos">
-    <label>Photos</label>
+    <label><%=  t(:vsn_photos_label) %></label>
     <br />
     <%= file_field_tag "story[picture_files][]", :class => 'thin photo_field', :id => nil %>
   </p>
   
   <p>
-    <%= f.label :language, 'This story is recorded in:' %>
+    <%= f.label :language, t(:vsn_language_label) %>
     <%= select "story", "language_id", langs %>
   </p>
  
   <p>
-  <label>Spam prevention: <span>so we can tell you're human</span></label><br/>
+    <label><%= t(:vsn_captcha_label) %></label><br/>
   <%= recaptcha_tags %><br/>
   </p>
 
-  <p>By clicking the button below, you certify that you are 13 years of age, or older.</p>
+    <p><%= t :vsn_certify_age %></p>
   
   <p>
-    <%= f.submit 'Add Your Story' %>
+    <%= f.submit t :vsn_submit_button %>
   </p>
 <% end %>
  
