@@ -64,3 +64,12 @@ Run rake task to populate some content
   rake web:bg
 
 Copy folders with images from content to public/images. Go to admin page, click on stories and approve newly created stories.
+
+== Internationalization
+Please no hardcoded text in views, helpers, controllers, etc. Go to config/locales and enter a name/value pair
+  vsn_form_title: "Share your story"
+
+Then in your form use the i18n t helper function
+  <h1><%= t :vsn_form_title %></h1>
+
+Please use unique prefixes (like namespaces) to prevent conflicts between views. 
