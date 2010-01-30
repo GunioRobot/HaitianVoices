@@ -70,6 +70,9 @@ namespace :web do
   task :bg do
     load 'config/environment.rb'
     
+    #hack in a language, if we need to
+    @language = Language.find_by_title('English') || Language.create(:title => 'English')
+    
     bg_articles = YAML.load_file( RAILS_ROOT + '/content/boston_globe_big_picture_blog_posts.yml')
     
     Story.delete_all
@@ -84,7 +87,8 @@ namespace :web do
       if( images.length!=captions.length )
         puts "SOMEBODY WAS MESSING WITH YAML FILE!!!"
       else
-        new_story = Story.create(:title => title, :body =>  article_body, :approved => true, :about => "Boston Globe's article" )
+        new_story = Story.create(:title => title, :body =>  article_body, :approved => true,
+          :about => "Boston Globe's article", :language_id => @language.id )
 
         captions.each_with_index { |e, i|         
           new_story.pictures.create(:caption => e, :photo_file_name=> "#{folder}/#{images[i]}" )
