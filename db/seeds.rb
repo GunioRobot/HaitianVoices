@@ -15,3 +15,10 @@ unless User.find_by_login('cselmer')
                 :twitter => 'cselmer'
               )
 end
+
+# adding English only, just so that story/view page doesn't blow up
+LANGUAGES = ['English']
+LANGUAGES.each do |lang|
+  Language.create( :title => lang ) unless Language.find_by_title( lang )
+end
+
