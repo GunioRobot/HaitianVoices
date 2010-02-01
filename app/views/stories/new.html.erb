@@ -1,18 +1,18 @@
 <% content_for :html_head do %>
-<%= javascript_include_tag "stories" %>
+  <%= javascript_include_tag "stories" %>
 <% end %>
- 
+
 <h1><%= t :vsn_form_title %></h1>
 
 <p><%= t :vsn_young_children %></p>
- 
+
 <% form_for( @story, :html => { :multipart => true }) do |f| %>
   <%= f.error_messages %>
-  
+
   <% if flash[:error] %>
     <p><%=h flash[:error] %></p>
   <% end %>
-  
+
   <p>
     <%= f.label :title, t(:vsn_title_label) %><br />
     <%= f.text_field :title, :class => 'long' %>
@@ -31,30 +31,30 @@
     <%= f.label :about, t(:vsn_about_you) %><br />
     <%= f.text_area :about, :class => 'thin' %>
   </p>
- 
+
   <p id="photos">
     <label><%=  t(:vsn_photos_label) %></label>
     <br />
     <%= file_field_tag "story[picture_files][]", :class => 'thin photo_field', :id => nil %>
   </p>
-  
+
   <p>
     <%= f.label :language, t(:vsn_language_label) %>
     <%= select "story", "language_id", langs %>
   </p>
- 
+
   <p>
     <label><%= t(:vsn_captcha_label) %></label><br/>
-  <%= recaptcha_tags %><br/>
+    <%= recaptcha_tags %><br/>
   </p>
 
-    <p><%= t :vsn_certify_age %></p>
-  
+  <p><%= t :vsn_certify_age %></p>
+
   <p>
     <%= f.submit t :vsn_submit_button %>
   </p>
 <% end %>
- 
+
 <p>
-<%= link_to 'Back Home', stories_path %>
+  <%= link_to 'Back Home', stories_path %>
 </p>

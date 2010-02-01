@@ -56,5 +56,9 @@ class Admin::StoriesController < AdminController
     @story.update_attribute( :approved, false ) 
     redirect_to admin_story_path( @story )   
   end
-  
+
+  def pending
+    logger.debug "*** pending ***"
+    @stories = Story.pending
+  end
 end

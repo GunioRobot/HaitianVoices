@@ -18,7 +18,9 @@ class Story < ActiveRecord::Base
 
   attr_accessor :picture_files
   named_scope :by_date, lambda { |sort| { :order => "created_at #{sort || 'DESC'}"} }
+
   named_scope :approved, :conditions => { :approved => true }
+  named_scope :pending, :conditions => { :approved => false }
 
   named_scope :search, lambda {|q| {:conditions => ["body like ?", "%#{q}%"]}}
   named_scope :text, lambda {|q| {:conditions => ["url is null"]}}

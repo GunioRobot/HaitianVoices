@@ -19,8 +19,10 @@ ActionController::Routing::Routes.draw do |map|
     admin.resources :translations, :member => { :approve => :put, :disapprove => :put }
     admin.resources :languages
     admin.resources :users
-    admin.resource :user_session
-    admin.resource :account, :controller => "users"
+    admin.resource  :user_session
+    admin.resource  :account, :controller => "users"
+
+    admin.pending_stories "pending", :controller => "stories", :action => "pending"
   end
 
   # The priority is based upon order of creation: first created -> highest priority.
