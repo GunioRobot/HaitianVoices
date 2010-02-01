@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100123214023) do
+ActiveRecord::Schema.define(:version => 20100201041448) do
 
   create_table "languages", :force => true do |t|
     t.string   "title"
@@ -38,6 +38,7 @@ ActiveRecord::Schema.define(:version => 20100123214023) do
     t.text     "about"
     t.integer  "language_id"
     t.string   "url"
+    t.string   "location"
   end
 
   create_table "taggings", :force => true do |t|
