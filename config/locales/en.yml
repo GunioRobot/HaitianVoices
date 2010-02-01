@@ -16,6 +16,7 @@ en:
   vsn_about_you: "A little about you: <span>contact information, a brief bio, whatever you care to share<br>(this will not show up on the site - this is here in case our volunteers need to get in touch)</br>"
 
   vsn_story_text_label: "Your Story: tell us your experiences"
+  vsn_story_location_label: "Location: Where were you when this experience happened?"
 
   vsn_photos_label: "Photos"
   vsn_language_label: "This story is recorded in:"
@@ -25,3 +26,6 @@ en:
   vsn_certify_age: "By clicking the button below, you certify that you are 13 years of age, or older."
 
   vsn_submit_button: "Add your story"
+
+#Views/stories/_story
+  vss_location: "Location"

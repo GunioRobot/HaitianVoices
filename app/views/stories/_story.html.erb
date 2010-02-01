@@ -1,5 +1,10 @@
 <div class='story'>
-  <% if story.title %><h3><%= link_to story.title, story_path(story) %></h3><% end %>
+  <% if story.title %>
+    <h3><%= link_to story.title, story_path(story) %></h3>
+  <% end %>
+  <% if story.location %>
+    <h4><%= t :vss_location %>: <%= story.location %></h4>
+  <% end %>
   <% if @requestedLanguage %>
     <div class="languages">
       Read this story in
