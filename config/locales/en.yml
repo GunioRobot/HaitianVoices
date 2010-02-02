@@ -19,6 +19,7 @@ en:
   vsn_story_location_label: "Location: Where were you when this experience happened?"
 
   vsn_photos_label: "Photos"
+  vsn_photo_caption_label: "Caption"
   vsn_language_label: "This story is recorded in:"
   vsn_captcha_label: "Spam prevention: <span>so we can tell you're human</span>"
 

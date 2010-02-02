@@ -17,6 +17,8 @@ class Story < ActiveRecord::Base
   attr_protected :approved, :approved_by, :approved_on
 
   attr_accessor :picture_files
+  attr_accessor :picture_captions
+
   named_scope :by_date, lambda { |sort| { :order => "created_at #{sort || 'DESC'}"} }
 
   named_scope :approved, :conditions => { :approved => true }
@@ -51,8 +53,9 @@ class Story < ActiveRecord::Base
   
   def add_pictures
     unless picture_files.blank?
-      picture_files.each do |f|
-        pictures << pictures.build(:photo => f)
+      picture_files.each_with_index do |f, i|
+	pic_caption ||= (picture_captions.is_a? Array) && picture_captions[i]
+        pictures << pictures.build(:photo => f, :caption => pic_caption)
       end
     end
   end

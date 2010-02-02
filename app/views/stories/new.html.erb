@@ -36,9 +36,14 @@
   </p>
 
   <p id="photos">
-    <label><%=  t(:vsn_photos_label) %></label>
-    <br />
-    <%= file_field_tag "story[picture_files][]", :class => 'thin photo_field', :id => nil %>
+    <label style="display:block;"><%=  t(:vsn_photos_label) %></label>
+    <span class="photo_record">
+      <%= file_field_tag "story[picture_files][]", :class => 'thin newest photo_field', :id => nil %>
+      <span class="photo_description" style="display:none;">
+	<%= label_tag :caption, t(:vsn_photo_caption_label) %>
+	<%= text_field_tag "story[picture_captions][]", nil, :class => 'thin', :maxlength => 1000, :value => nil %>
+      </span>
+    <div>
   </p>
 
   <p>

@@ -17,8 +17,7 @@
     <% if !(story.pictures.blank?) %><div class='media'>
       <div class='picture'>
         <% story.pictures.each do |pic| %>
-          <%= image_tag pic.photo.url(:thumb) %>
-          <%= pic.caption %>
+          <%= image_tag pic.photo.url(:thumb), :title => pic.caption %>
         <% end %>
       </div>
     </div><% end %>
