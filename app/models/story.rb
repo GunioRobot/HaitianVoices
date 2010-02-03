@@ -19,7 +19,7 @@ class Story < ActiveRecord::Base
   attr_accessor :picture_files
   attr_accessor :picture_captions
 
-  named_scope :by_date, lambda { |sort| { :order => "created_at #{sort || 'DESC'}"} }
+  named_scope :by_date, lambda { |sort| { :order => "#{Story.table_name}.created_at #{sort || 'DESC'}"} }
 
   named_scope :approved, :conditions => { :approved => true }
   named_scope :pending, :conditions => { :approved => false }

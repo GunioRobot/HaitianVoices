@@ -10,8 +10,8 @@ describe Story do
     @foo = Factory(:story, :tag_list => "foo")
     @bar = Factory(:story, :tag_list => "bar")
     @foo_bar = Factory(:story, :tag_list => "foo, bar")
-    Story.tagged_with("foo").all(:order => "id").should == [@foo, @foo_bar]
-    Story.tagged_with("bar").all(:order => "id").should == [@bar, @foo_bar]
+    Story.tagged_with("foo").all(:order => "#{Story.table_name}.id").should == [@foo, @foo_bar]
+    Story.tagged_with("bar").all(:order => "#{Story.table_name}.id").should == [@bar, @foo_bar]
   end
   
   it "should be searchable" do
