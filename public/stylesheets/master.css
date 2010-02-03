@@ -155,28 +155,34 @@ h2 {
 
 div.story {
   margin-bottom: 1em; }
+  div.story + div.story {
+    margin-top: 2em; }
+  div.story > * + * {
+    margin-top: 0.5em; }
   div.story h3 {
     font-size: 20px;
-    margin: 0 10px 10px; }
+    padding: 0 0.6em; }
     div.story h3 a {
       text-decoration: none;
       color: #722; }
+  div.story h4 {
+    padding: 0 0.85em; }
   div.story div.body {
     background: white url(/images/pattern_100.png);
-    border: 3px solid #dca;
-    padding: 15px;
-    margin: 0.5em 0;
-    -moz-border-radius: 15px;
-    -webkit-border-radius: 15px;
-    border-radius: 15px; }
+    border: 0.2em solid #dca;
+    padding: 0.5em 1.25em;
+    -moz-border-radius: 1.25em;
+    -webkit-border-radius: 1.25em;
+    border-radius: 1.25em; }
   div.story ul.tags {
-    padding: 0; }
-    div.story ul.tags li.tag {
-      margin: 0 0 0 0.5em;
-      padding: 0;
-      display: inline; }
-      div.story ul.tags li.tag:before {
-        content: '#'; }
+    padding: 0 0.85em; }
+
+li.tag {
+  margin: 0 0 0 0.25em;
+  padding: 0;
+  display: inline; }
+  li.tag:before {
+    content: '#'; }
 
 .find {
   padding: 5px 0;

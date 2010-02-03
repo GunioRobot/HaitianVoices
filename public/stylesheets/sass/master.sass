@@ -74,26 +74,32 @@ h2
 
 div.story
   :margin-bottom 1em
+  & + &
+    margin-top: 2em
+  & > * + *
+    :margin-top 0.5em
   h3
     :font-size 20px
-    :margin 0 10px 10px
+    :padding 0 0.6em
     a
       :text-decoration none
-      :color #722      
+      :color #722
+  h4
+    :padding 0 0.85em
   div.body
     :background white url(/images/pattern_100.png)
-    :border 3px solid #dca
-    :padding 15px
-    :margin 0.5em 0
-    +round(15px)
+    :border 0.2em solid #dca
+    :padding 0.5em 1.25em
+    +round(1.25em)
   ul.tags
-    :padding 0
-    li.tag
-      :margin 0 0 0 0.5em
-      :padding 0
-      :display inline
-      &:before
-        :content '#'
+    :padding 0 0.85em
+      
+li.tag
+  :margin 0 0 0 0.25em
+  :padding 0
+  :display inline
+  &:before 
+    :content '#'
 
 .find
   :padding 5px 0
