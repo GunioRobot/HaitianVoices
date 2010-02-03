@@ -4,9 +4,9 @@ class Picture < ActiveRecord::Base
   # Paperclip
   has_attached_file :photo,
     :styles => {
-      :thumb=> "100x100#",
-      :small  => "150x150>" }
-
-
+      :thumb  => "100x100#",
+      :small  => "320x240>",
+      :medium => "480x360>",
+      :large  => "720x540>" }
 
 end
