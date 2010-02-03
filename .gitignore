@@ -11,3 +11,4 @@ vendor/bundler_gems
 db/schema.rb
 *~
 public/system/**
+public/stylesheets/*.css
