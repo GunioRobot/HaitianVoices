@@ -2,6 +2,7 @@
 rerun.txt
 log/*.log
 tmp/**/*
+db/*.sqlite3
 doc/api
 doc/app
 config/database.yml
