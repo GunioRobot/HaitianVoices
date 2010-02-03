@@ -73,6 +73,7 @@ h2
   :margin-bottom 20px
 
 div.story
+  :margin-bottom 1em
   h3
     :font-size 20px
     :margin 0 10px 10px
@@ -80,12 +81,19 @@ div.story
       :text-decoration none
       :color #722      
   div.body
-    :background white url(/images/pattern_10.png)
+    :background white url(/images/pattern_100.png)
     :border 3px solid #dca
     :padding 15px
-    :margin-bottom 25px
-    :margin-top 7px
+    :margin 0.5em 0
     +round(15px)
+  ul.tags
+    :padding 0
+    li.tag
+      :margin 0 0 0 0.5em
+      :padding 0
+      :display inline
+      &:before
+        :content '#'
 
 .find
   :padding 5px 0
