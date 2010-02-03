@@ -10,13 +10,13 @@ class StoriesController < ApplicationController
       scope = scope.video
     end
     @stories = scope.paginate(pagination_options)
-    @tags = Tag.all
     
     respond_to do |format|
-      format.html
+      format.html do
+        @tags = Tag.all # only load the tags for the HTML version
+      end
       format.json { render :json => @stories }
       format.xml  { render :xml => @stories }
-      format.html
     end
   end
 
@@ -37,7 +37,6 @@ class StoriesController < ApplicationController
       format.html
       format.json { render :json => @story }
       format.xml  { render :xml => @story }
-      format.html
     end    
   end
   
