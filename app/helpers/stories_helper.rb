@@ -1,6 +1,6 @@
 module StoriesHelper
   def display(text)
-    text.gsub("\n",'<br/>')
+    text.gsub("\n",'<br />')
   end
 
   def story_date_sort
@@ -29,6 +29,10 @@ module StoriesHelper
 
   def langs
     @langs ||= Language.find(:all, :order => 'title').map{ |lang| [lang.title, lang.id]} 
+  end
+  
+  def pic_url_as_id( url )
+    url.gsub(/[^[:alnum:]]+/, "_")  # convert all non-alphanums to underscores
   end
   
 end

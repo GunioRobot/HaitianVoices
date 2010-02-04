@@ -1,3 +1,11 @@
+<% content_for :html_head do %>
+  <% if @stories_stylesheet_defined.nil?   # RWP: hack for once-only include %>
+    <%= stylesheet_link_tag 'stories' %>
+    <%= javascript_include_tag 'stories.js' %>
+    <% @stories_stylesheet_defined = true %>
+  <% end %>
+<% end %>
+
 <div class='story'>
   <% if story.title %>
     <h3><%= link_to story.title, story_path(story) %></h3>
@@ -17,7 +25,11 @@
     <% if !(story.pictures.blank?) %><div class='media'>
       <div class='picture'>
         <% story.pictures.each do |pic| %>
-          <%= image_tag pic.photo.url(:thumb), :title => pic.caption %>
+          <%= image_tag pic.photo.url(:thumb), :title => pic.caption, :class => 'img_expand', :large_pic_id => pic_url_as_id(pic.photo.url(:thumb)) %>
+          <span style="display:none;">
+            <%= image_tag pic.photo.url(:large), :id => pic_url_as_id(pic.photo.url(:thumb)) , 
+                                                 :title => pic.caption, :class => 'img_expand' %>
+          </span>
         <% end %>
       </div>
     </div><% end %>

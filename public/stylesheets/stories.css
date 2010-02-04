@@ -1,0 +1,10 @@
+#imagepreviewer {
+  position: absolute;
+  background: white url(/images/pattern_100.png);
+  border: 3px solid #b85;
+  padding: 15px;
+  margin-bottom: 25px;
+  margin-top: 7px;
+  -moz-border-radius: 15px;
+  -webkit-border-radius: 15px;
+  border-radius: 15px; }
