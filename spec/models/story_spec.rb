@@ -1,6 +1,7 @@
 require File.expand_path(File.dirname(__FILE__) + '/../spec_helper')
 
 describe Story do
+  
   it "finds a random story" do
     2.times {Factory(:story)}
     Story.all.include?(Story.random).should == true
@@ -20,15 +21,35 @@ describe Story do
     Story.search("foo").all.should == [@foo]
   end
   
+  describe 'finding by review status' do
+    before(:each) do
+      @pending = Factory(:unreviewed_story)
+      @approved = Factory(:approved_story)
+      @disapproved = Factory(:disapproved_story)
+    end
+    
+    it 'should find pending Stories' do
+      Story.pending.to_a.should == [@pending]
+    end
+    
+    it 'should find approved Stories' do
+      Story.approved.to_a.should == [@approved]
+    end
+    
+    it 'should find disapproved Stories' do
+      Story.disapproved.to_a.should == [@disapproved]
+    end
+  end
+  
   it 'should be approvable' do
     earlier = Time.now
     user = Factory(:user)
-    story = Factory(:story, :approved => false)
+    story = Factory(:unreviewed_story)
     story.should_not be_approved
     story.approved_by!(user)
     story.should be_approved
-    story.approver.should == user
-    story.approved_on.should be > earlier
+    story.reviewer.should == user
+    story.reviewed_at.should be > earlier
   end
   
 end

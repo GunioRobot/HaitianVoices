@@ -25,8 +25,6 @@ class Story < ActiveRecord::Base
     { :order => "#{Story.table_name}.created_at #{sort}" }
   }
 
-  named_scope :pending, :conditions => { :approved => false }
-
   named_scope :search, lambda {|q| {:conditions => ["body like ?", "%#{q}%"]}}
   named_scope :text, lambda {|q| {:conditions => ["url is null"]}}
   named_scope :video, lambda {|q| {:conditions => ["url is not null"]}}

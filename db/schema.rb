@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100201041448) do
+ActiveRecord::Schema.define(:version => 20100204182748) do
 
   create_table "languages", :force => true do |t|
     t.string   "title"
@@ -18,7 +18,7 @@ ActiveRecord::Schema.define(:version => 20100201041448) do
   end
 
   create_table "pictures", :force => true do |t|
-    t.string   "caption"
+    t.string   "caption",            :limit => 1000
     t.string   "photo_file_name"
     t.string   "photo_content_type"
     t.integer  "photo_file_size"
@@ -33,8 +33,8 @@ ActiveRecord::Schema.define(:version => 20100201041448) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.boolean  "approved",    :default => false
-    t.integer  "approved_by"
-    t.datetime "approved_on"
+    t.integer  "reviewed_by"
+    t.datetime "reviewed_at"
     t.text     "about"
     t.integer  "language_id"
     t.string   "url"
@@ -64,8 +64,8 @@ ActiveRecord::Schema.define(:version => 20100201041448) do
     t.string   "title"
     t.text     "body"
     t.boolean  "approved",    :default => false
-    t.integer  "approved_by"
-    t.datetime "approved_on"
+    t.integer  "reviewed_by"
+    t.datetime "reviewed_at"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "story_id"
