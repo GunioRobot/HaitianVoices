@@ -1,0 +1,7 @@
+<h2>Listing All Tags</h2>
+
+<ol class='tags'>
+  <% @tags.each do |tag| %>
+    <li class='tag'><%= link_to tag.name, tagged_stories_path(:tag => tag.name) -%></li>
+  <% end %>
+</ol>
