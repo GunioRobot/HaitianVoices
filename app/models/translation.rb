@@ -6,7 +6,7 @@ class Translation < ActiveRecord::Base
   
   acts_as_approvable
 
-  named_scope :by_date, :order => "created_at DESC"
+  named_scope :by_date, :order => "#{self.table_name}.created_at DESC"
 
   def truncated_body
     @truncated_body ||= truncate_words( body, 100 )
