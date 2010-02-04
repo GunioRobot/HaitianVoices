@@ -1,12 +1,12 @@
+require 'acts_as_approvable'
+
 class Translation < ActiveRecord::Base
   belongs_to :story
   belongs_to :language
-  belongs_to :user, :class_name => "User", :foreign_key => "approved_by"
   
-  attr_protected :approved, :approved_by, :approved_on
+  acts_as_approvable
 
   named_scope :by_date, :order => "created_at DESC"
-  named_scope :approved, :conditions => { :approved => true }
 
   def truncated_body
     @truncated_body ||= truncate_words( body, 100 )

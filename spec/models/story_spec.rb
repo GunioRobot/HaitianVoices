@@ -20,4 +20,15 @@ describe Story do
     Story.search("foo").all.should == [@foo]
   end
   
+  it 'should be approvable' do
+    earlier = Time.now
+    user = Factory(:user)
+    story = Factory(:story, :approved => false)
+    story.should_not be_approved
+    story.approved_by!(user)
+    story.should be_approved
+    story.approver.should == user
+    story.approved_on.should be > earlier
+  end
+  
 end

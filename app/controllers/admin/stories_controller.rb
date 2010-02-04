@@ -46,8 +46,7 @@ class Admin::StoriesController < AdminController
   
   def approve
     @story = Story.find(params[:id])
-    @story.update_attribute( :approved, true )
-    @story.update_attribute( :approved_by, current_user )
+    @story.approved_by!(current_user)
     redirect_to admin_story_path( @story )
   end
   
