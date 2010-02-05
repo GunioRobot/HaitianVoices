@@ -10,14 +10,17 @@ jQuery(function($){
   })
 
   $('.img_expand').hover(function(e) {
-    var xOffset = 10; /* default values for offset from cursor */
-    var yOffset = 30;
+    var preview_img =  $(this).next('span').find('img');
+    /* default values for offset from cursor */
+    var xOffset = 10;
+    /* calculating Y offset from cursor, adjusting for bottom of window */
+    var yDistanceFromBottom = window.innerHeight - e.pageY - preview_img.attr('height') - 30;
+    var yOffset = (yDistanceFromBottom > 0) ? 30 : (30 + yDistanceFromBottom);
     this.tmp_title = this.title;
     this.title = "";
     var c = (this.tmp_title != "") ? "<br/>" + this.tmp_title : "";
-/*    $("body").append("<p id='imageview' style='position:absolute;'><img src='"+ this.src +"' alt='Image preview' />"+ c +"</p>"); */
-    $("body").append("<p id='imagepreviewer'><img src='"+ $(this).next('span').find('img').attr('src') +"' alt='Image preview' />"+ c +"</p>");
-    $("#imagepreviewer").css("top",(e.pageY - xOffset) + "px").css("left",(e.pageX + yOffset) + "px").fadeIn("fast");      
+    $("body").append("<p id='imagepreviewer'><img src='"+ preview_img.attr('src') +"' alt='Image preview' />"+ c +"</p>");
+    $("#imagepreviewer").css("top",(e.pageY + yOffset) + "px").css("left",(e.pageX + xOffset) + "px").fadeIn("fast");      
   },
   function() {
     this.title = this.tmp_title;
@@ -25,10 +28,12 @@ jQuery(function($){
   });
 
   $('.img_expand').mousemove(function(e) {
-    var xOffset = 10; /* default values for offset from cursor */
-    var yOffset = 30;
-    $("#imagepreviewer").css("top",(e.pageY - xOffset) + "px").css("left",(e.pageX + yOffset) + "px");
+    /* default values for offset from cursor */
+    var xOffset = 10; 
+    /* calculating Y offset from cursor, adjusting for bottom of window */
+    var yDistanceFromBottom = window.innerHeight - e.pageY - $("#imagepreviewer").innerHeight() - 30;
+    var yOffset = (yDistanceFromBottom > 0) ? 30 : (30 + yDistanceFromBottom);
+    $("#imagepreviewer").css("top",(e.pageY + yOffset) + "px").css("left",(e.pageX + xOffset) + "px");
   });
-
 
 })

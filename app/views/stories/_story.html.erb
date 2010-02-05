@@ -27,7 +27,7 @@
         <% story.pictures.each do |pic| %>
           <%= image_tag pic.photo.url(:thumb), :title => pic.caption, :class => 'img_expand', :large_pic_id => pic_url_as_id(pic.photo.url(:thumb)) %>
           <span style="display:none;">
-            <%= image_tag pic.photo.url(:large), :id => pic_url_as_id(pic.photo.url(:thumb)) , 
+            <%= image_tag pic.photo.url(:medium), :id => pic_url_as_id(pic.photo.url(:thumb)) , 
                                                  :title => pic.caption, :class => 'img_expand' %>
           </span>
         <% end %>
