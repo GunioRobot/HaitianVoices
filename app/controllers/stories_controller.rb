@@ -1,22 +1,22 @@
 class StoriesController < ApplicationController
 
   def index
+    scope = Story.approved.by_date(params[:sort])
+    scope = scope.tagged_with(params[:tag]) if params[:tag].present?
+    scope = scope.search(params[:q]) if params[:q].present?
     if params[:filter] == 'text'
-      scope = Story.approved.text.by_date(params[:sort]).tagged_with(params[:tag])
+      scope = scope.text
     elsif params[:filter] == 'video'
-      scope = Story.approved.video.by_date(params[:sort]).tagged_with(params[:tag])
-    else
-      scope = Story.approved.by_date(params[:sort]).tagged_with(params[:tag])
+      scope = scope.video
     end
-    scope = scope.search(params[:q]) unless params[:q].blank?
     @stories = scope.paginate(pagination_options)
-    @tags = Tag.all
     
     respond_to do |format|
-      format.html
+      format.html do
+        @tags = Tag.all # only load the tags for the HTML version
+      end
       format.json { render :json => @stories }
       format.xml  { render :xml => @stories }
-      format.html
     end
   end
 
@@ -37,7 +37,6 @@ class StoriesController < ApplicationController
       format.html
       format.json { render :json => @story }
       format.xml  { render :xml => @story }
-      format.html
     end    
   end
   

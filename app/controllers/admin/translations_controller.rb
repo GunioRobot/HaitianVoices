@@ -17,8 +17,7 @@ class Admin::TranslationsController < AdminController
   
   def approve
     @translation = Translation.find(params[:id])
-    @translation.update_attribute( :approved, true )
-    @translation.update_attribute( :approved_by, current_user )
+    @translation.approved_by!(current_user)
     redirect_to admin_translation_path( @translation )
   end
 

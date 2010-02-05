@@ -35,4 +35,11 @@
     </div><% end %>
     <p class='story'><%= display(story.body) %></p>
   </div>
+  <% if story.tags.any? %>
+    <ul class='tags'>
+      Tagged: <% story.tags.each do |t| %>
+      <li class='tag'><%= link_to t, tagged_stories_path(:tag => t.name) %></li>
+      <% end %>
+    </ul>
+  <% end %>
 </div>

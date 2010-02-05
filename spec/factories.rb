@@ -8,6 +8,24 @@ Factory.define :story do |f|
   f.approved true
 end
 
+Factory.define :unreviewed_story, :parent => :story do |s|
+  s.approved false
+  s.reviewer nil
+  s.reviewed_at nil
+end
+
+Factory.define :approved_story, :parent => :story do |s|
+  s.approved true
+  s.reviewer { User.first || Factory(:user) }
+  s.reviewed_at { 10.minutes.ago }
+end
+
+Factory.define :disapproved_story, :parent => :story do |s|
+  s.approved false
+  s.reviewer { User.first || Factory(:user) }
+  s.reviewed_at { 45.minutes.ago }
+end
+
 Factory.define :user do |f|
   f.first_name "Test"
   f.last_name "User"

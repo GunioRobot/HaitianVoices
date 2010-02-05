@@ -1,3 +1,5 @@
+require 'acts_as_approvable'
+
 class Story < ActiveRecord::Base
 
   # TODO AB: #url is just a placholder for a video relationship
@@ -5,24 +7,23 @@ class Story < ActiveRecord::Base
   # the video integration, this field can be removed.
   #
   acts_as_taggable_on :tags
-
-  belongs_to :user, :class_name => "User", :foreign_key => "approved_by"
+  
+  acts_as_approvable
+  
   belongs_to :language
-
-  belongs_to :user, :class_name => "User", :foreign_key => "approved_by"
 
   has_many :pictures
   has_many :translations
 
-  attr_protected :approved, :approved_by, :approved_on
-
   attr_accessor :picture_files
   attr_accessor :picture_captions
 
-  named_scope :by_date, lambda { |sort| { :order => "created_at #{sort || 'DESC'}"} }
-
-  named_scope :approved, :conditions => { :approved => true }
-  named_scope :pending, :conditions => { :approved => false }
+  SAFE_SORT_DIRECTIONS = /^(asc|desc)$/i
+  
+  named_scope :by_date, lambda { |sort|
+    sort = 'DESC' unless sort =~ SAFE_SORT_DIRECTIONS
+    { :order => "#{Story.table_name}.created_at #{sort}" }
+  }
 
   named_scope :search, lambda {|q| {:conditions => ["body like ?", "%#{q}%"]}}
   named_scope :text, lambda {|q| {:conditions => ["url is null"]}}
