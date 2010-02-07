@@ -80,20 +80,23 @@ namespace :web do
     
     bg_articles.each_pair {|title, array|
       folder = array[1]
-      article_body = array[2]
-      images = array[3]
-      captions = array[4]
+      tags = array[2]
+      article_body = array[3]
+      images = array[4]
+      captions = array[5]
       
       if( images.length!=captions.length )
-        puts "SOMEBODY WAS MESSING WITH YAML FILE!!!"
+        puts "SOMEBODY WAS MESSING WITH THE YAML FILE!!!"
       else
         new_story = Story.create(:title => title, :body =>  article_body, :approved => true,
           :about => "Boston Globe's article", :language_id => @language.id )
+        new_story.tag_list = tags
 
         captions.each_with_index { |e, i|         
           new_story.pictures.create(:caption => e, :photo_file_name=> "#{folder}/#{images[i]}" )
         }
 
+        new_story.save
       end
       
     }
