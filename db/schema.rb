@@ -18,7 +18,7 @@ ActiveRecord::Schema.define(:version => 20100204182748) do
   end
 
   create_table "pictures", :force => true do |t|
-    t.string   "caption",            :limit => 1000
+    t.string   "caption"
     t.string   "photo_file_name"
     t.string   "photo_content_type"
     t.integer  "photo_file_size"

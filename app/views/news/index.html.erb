@@ -1,0 +1,7 @@
+<% @rss_items.each do |item| %>
+
+<h2><%=h item.title %></h2>
+  <div class="story">
+    <p><%=h item.description %></p>
+  </div>
+<% end %>

@@ -9,6 +9,9 @@ ActionController::Routing::Routes.draw do |map|
   map.terms '/terms', :controller => 'pages', :action => 'show_page', :page_name => 'terms'
   map.share '/share', :controller => 'stories', :action => 'new'
 
+
+  map.news '/news', :controller => 'news'
+
   map.translatedStory "/stories/:id/:language", :controller => 'stories', :action => 'show'
 
   map.resources :stories
