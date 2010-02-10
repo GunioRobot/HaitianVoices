@@ -1,5 +1,7 @@
 
-NEWS_URL = "http://news.crisiscommons.org/rss/all/rss.xml"
+#NEWS_URL = "http://news.crisiscommons.org/rss/all/rss.xml"
+
+NEWS_URL = "http://www.techmeme.com/index.xml"
 
 class NewsController < ApplicationController
   def index

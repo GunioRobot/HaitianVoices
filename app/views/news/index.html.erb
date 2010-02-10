@@ -1,7 +1,8 @@
 <% @rss_items.each do |item| %>
 
-<h2><%=h item.title %></h2>
+  <h2><%=h item.title %></h2>
   <div class="story">
-    <p><%=h item.description %></p>
+    <p><%= item.description %></p>
+    <p><a href = <%= item.link %>>read more...</a></p>
   </div>
 <% end %>
