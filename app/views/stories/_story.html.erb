@@ -26,8 +26,7 @@
       <div class='picture'>
         <% story.pictures.each do |pic| %>
           <%= image_tag pic.photo.url(:thumb), :title => pic.caption, :class => 'img_expand', :pic_url => story_picture_path(story,pic,:xml) %>
-          <span style="display:none;" id="<%= pic_url_as_id(pic.photo.url(:thumb)) %>" value="<%= pic.photo.url(:medium) %>">
-          </span>
+          <span style="display:none;" id="<%= pic_url_as_id(pic.photo.url(:thumb)) %>" value="<%= pic.photo.url(:medium) %>"></span>
         <% end %>
       </div>
     </div><% end %>
