@@ -11,16 +11,18 @@ jQuery(function($){
 
   $('.img_expand').hover(function(e) {
     var preview_img =  $(this).next('span').find('img');
-    /* default values for offset from cursor */
-    var xOffset = 10;
-    /* calculating Y offset from cursor, adjusting for bottom of window */
-    var yDistanceFromBottom = window.innerHeight - e.pageY - preview_img.attr('height') - 30;
-    var yOffset = (yDistanceFromBottom > 0) ? 30 : (30 + yDistanceFromBottom);
     this.tmp_title = this.title;
     this.title = "";
     var c = (this.tmp_title != "") ? "<br/>" + this.tmp_title : "";
-    $("body").append("<p id='imagepreviewer'><img src='"+ preview_img.attr('src') +"' alt='Image preview' />"+ c +"</p>");
-    $("#imagepreviewer").css("top",(e.pageY + yOffset) + "px").css("left",(e.pageX + xOffset) + "px").fadeIn("fast");      
+    if( preview_img.length > 0 )  {
+      $("body").append("<p id='imagepreviewer' style='max-width:" + preview_img.attr('width') + "px'><img src='"+ preview_img.attr('src') +"' alt='Image preview' />"+ c +"</p>");
+      positionPreviewer(e);
+    }
+    else {
+      $("body").append("<p id='imagepreviewer></p>");
+      positionPreviewer(e);
+      loadImage($(this).attr('pic_url'));
+    }
   },
   function() {
     this.title = this.tmp_title;
@@ -28,12 +30,56 @@ jQuery(function($){
   });
 
   $('.img_expand').mousemove(function(e) {
-    /* default values for offset from cursor */
-    var xOffset = 10; 
-    /* calculating Y offset from cursor, adjusting for bottom of window */
-    var yDistanceFromBottom = window.innerHeight - e.pageY - $("#imagepreviewer").innerHeight() - 30;
-    var yOffset = (yDistanceFromBottom > 0) ? 30 : (30 + yDistanceFromBottom);
-    $("#imagepreviewer").css("top",(e.pageY + yOffset) + "px").css("left",(e.pageX + xOffset) + "px");
+    // RWP: state logic for picture loading goes here
+    positionPreviewer(e);
   });
 
-})
+  // calculates X offset: show pic right of cursor normally, or left of cursor if image would get clipped off
+  // the right edge.
+  xOffset = function(e) {
+    var xDistanceFromRightEnd = window.innerWidth - e.pageX - $("#imagepreviewer").innerWidth() - 10;
+    return (xDistanceFromRightEnd > 0) ? 10 : (-10 - $("#imagepreviewer").innerWidth());
+  }
+
+  // calculate Y offset: directly under cursor normally, or along bottom edge if image would get clipped
+  // off the bottom edge.
+  yOffset = function(e)  {
+    var yDistanceFromBottom = window.innerHeight - e.pageY - $("#imagepreviewer").innerHeight() - 30;
+    return (yDistanceFromBottom > 0) ? 30 : (30 + yDistanceFromBottom);
+  }
+
+  createPreviewer = function(parent_el_id, cap) {
+    $("#imagepreviewer").append($('#' + parent_el_id).find('img').clone()).append(cap);
+  }
+
+  positionPreviewer = function(e) {
+    $("#imagepreviewer").css("top",(e.pageY + yOffset(e)) + "px").css("left",(e.pageX + xOffset(e)) + "px");
+  }
+
+  loadImage = function(pic_url) {
+    $.ajax({
+      type: "GET",
+      url: pic_url,
+      dataType: "xml",
+      success: parsePictureXml
+    });
+  }
+
+  parsePictureXml = function(xml) {
+    // find picture and append contents to image viewer
+    $(xml).find("picture").each(function()
+    {
+      var parent_el_id = $(this).find("id").text();
+      var photo_url = $(this).find("photo").text();
+      var img = new Image();
+  
+      // run previewer-loading code after image loads
+      $(img).load(function () {
+	$('#' + parent_el_id).append($(this));
+	createPreviewer( parent_el_id, $(this).find("caption").text() );
+      }).attr('src', photo_url);
+      
+    });
+  }
+
+});

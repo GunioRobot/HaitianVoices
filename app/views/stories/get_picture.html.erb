@@ -1,0 +1,5 @@
+<%= image_tag @picture.photo.url(@size), :id => pic_url_as_id(@picture.photo.url(:thumb)) , 
+                                         :title => @picture.caption, :class => 'img_expand' %>
+
+<p><%= @picture.caption %></p><br />
+<p><%= link_to "Back to story: \"#{@story.title}\"", story_path(@story) %></p>

@@ -61,4 +61,17 @@ class StoriesController < ApplicationController
     end
   end
   
+  # renders HTML or XML for the selected picture; sizes other than default can be selected
+  # by passing the appropriate parameter (e.g. "<url>?size=L" for Large)
+  def get_picture
+    @story = Story.find(params[:story_id])
+    @picture = Picture.find(params[:picture_id])
+    @size = Picture::SIZE_PARAMS[(params[:size] || Picture::DEFAULT_SIZE_PARAM)]
+    respond_to do |format|
+      format.html { render :html => @picture }
+      format.json { render :json => @picture }
+      format.xml  {  }  # call XML builder file
+    end    
+  end
+  
 end

@@ -14,7 +14,9 @@ ActionController::Routing::Routes.draw do |map|
 
   map.translatedStory "/stories/:id/:language", :controller => 'stories', :action => 'show'
 
-  map.resources :stories, :path_names => { :new => 'mystory' }
+  map.resources :stories, :path_names => { :new => 'mystory' } do |story|
+    story.picture 'pictures/:picture_id.:format', :controller => 'stories', :action => 'get_picture'
+  end
   map.tagged_stories "/tags/:tag/stories", :controller => 'stories'
   
   map.resources :tags, :only => [:index]
