@@ -38,14 +38,16 @@ jQuery(function($){
   // calculates X offset: show pic right of cursor normally, or left of cursor if image would get clipped off
   // the right edge.
   xOffset = function(e) {
-    var xDistanceFromRightEnd = window.innerWidth - e.pageX - $("#imagepreviewer").innerWidth() - 10;
-    return (xDistanceFromRightEnd > 0) ? 10 : (-10 - $("#imagepreviewer").innerWidth());
+    var xAbsPosition = e.pageX -  $(window).scrollLeft();
+    var xDistanceFromRightEnd = window.innerWidth - xAbsPosition - $("#imagepreviewer").innerWidth() - 30;
+    return (xDistanceFromRightEnd > 0) ? 15 : (-15 - $("#imagepreviewer").innerWidth());
   }
 
   // calculate Y offset: directly under cursor normally, or along bottom edge if image would get clipped
   // off the bottom edge.
   yOffset = function(e)  {
-    var yDistanceFromBottom = window.innerHeight - e.pageY - $("#imagepreviewer").innerHeight() - 30;
+    var yAbsPosition = e.pageY -  $(window).scrollTop();
+    var yDistanceFromBottom = $(window).height() - yAbsPosition - $("#imagepreviewer").innerHeight() - 30;
     return (yDistanceFromBottom > 0) ? 30 : (30 + yDistanceFromBottom);
   }
 
