@@ -23,7 +23,7 @@ module StoriesHelper
     return unless story.url
     markup =  "<object width='#{width}' height='#{height}'>"
     markup << "<param name='movie' value='#{story.youtube_embed_url}' align='left'></param>"
-    markup << "<embed src='#{story.youtube_embed_url}' type='application/x-shockwave-flash' width='#{width}' height='#{height}'></embed>"
+    markup << "<embed src='#{story.youtube_embed_url}' type='application/x-shockwave-flash' width='#{width}' height='#{height}' wmode='opaque'></embed>"
     markup << "</object>"
   end
 

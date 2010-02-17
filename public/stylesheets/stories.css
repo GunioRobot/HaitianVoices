@@ -1,5 +1,6 @@
 #imagepreviewer {
   position: absolute;
+  z-index: 0;
   background: white url(/images/pattern_100.png);
   border: 3px solid #b85;
   padding: 15px;
